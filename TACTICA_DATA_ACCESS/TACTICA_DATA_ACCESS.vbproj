@@ -77,7 +77,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseRepository.vb" />
+    <Compile Include="Connection.vb" />
     <Compile Include="DependencyInyection.vb" />
     <Compile Include="Interfaces\IBaseRepository.vb" />
     <Compile Include="Interfaces\IClienteRepository.vb" />
