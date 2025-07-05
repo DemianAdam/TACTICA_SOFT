@@ -24,6 +24,7 @@ Partial Class Principal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principal))
         Me.panelMenu = New System.Windows.Forms.Panel()
+        Me.btnClientes = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelBottom = New System.Windows.Forms.Panel()
         Me.panelContainer = New System.Windows.Forms.Panel()
@@ -44,13 +45,31 @@ Partial Class Principal
         'panelMenu
         '
         Me.panelMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.panelMenu.Controls.Add(Me.btnClientes)
         Me.panelMenu.Controls.Add(Me.PictureBox1)
         Me.panelMenu.Dock = System.Windows.Forms.DockStyle.Left
         Me.panelMenu.Location = New System.Drawing.Point(3, 38)
         Me.panelMenu.Name = "panelMenu"
         Me.panelMenu.Padding = New System.Windows.Forms.Padding(10, 15, 10, 0)
-        Me.panelMenu.Size = New System.Drawing.Size(153, 361)
+        Me.panelMenu.Size = New System.Drawing.Size(179, 359)
         Me.panelMenu.TabIndex = 1
+        '
+        'btnClientes
+        '
+        Me.btnClientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnClientes.FlatAppearance.BorderSize = 0
+        Me.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClientes.Font = New System.Drawing.Font("Nunito", 15.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClientes.ForeColor = System.Drawing.Color.White
+        Me.btnClientes.Location = New System.Drawing.Point(5, 76)
+        Me.btnClientes.Name = "btnClientes"
+        Me.btnClientes.Size = New System.Drawing.Size(164, 46)
+        Me.btnClientes.TabIndex = 1
+        Me.btnClientes.Text = "Clientes"
+        Me.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnClientes.UseVisualStyleBackColor = False
         '
         'PictureBox1
         '
@@ -58,7 +77,7 @@ Partial Class Principal
         Me.PictureBox1.Image = Global.TACTICA_FORMS_UI.My.Resources.Resources.TACTICASOFT_nombre
         Me.PictureBox1.Location = New System.Drawing.Point(10, 15)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(133, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(159, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -67,26 +86,29 @@ Partial Class Principal
         '
         Me.panelBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panelBottom.Location = New System.Drawing.Point(156, 362)
+        Me.panelBottom.Location = New System.Drawing.Point(182, 360)
         Me.panelBottom.Name = "panelBottom"
-        Me.panelBottom.Size = New System.Drawing.Size(582, 37)
+        Me.panelBottom.Size = New System.Drawing.Size(515, 37)
         Me.panelBottom.TabIndex = 2
         '
         'panelContainer
         '
         Me.panelContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.panelContainer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.panelContainer.Controls.Add(Me.pbLogoCentral)
         Me.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelContainer.Location = New System.Drawing.Point(156, 38)
+        Me.panelContainer.Location = New System.Drawing.Point(182, 38)
         Me.panelContainer.Name = "panelContainer"
-        Me.panelContainer.Size = New System.Drawing.Size(582, 361)
+        Me.panelContainer.Size = New System.Drawing.Size(515, 322)
         Me.panelContainer.TabIndex = 3
         '
         'pbLogoCentral
         '
         Me.pbLogoCentral.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.pbLogoCentral.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.pbLogoCentral.Enabled = False
         Me.pbLogoCentral.Image = Global.TACTICA_FORMS_UI.My.Resources.Resources.logocentral
-        Me.pbLogoCentral.Location = New System.Drawing.Point(205, 76)
+        Me.pbLogoCentral.Location = New System.Drawing.Point(174, 67)
         Me.pbLogoCentral.Name = "pbLogoCentral"
         Me.pbLogoCentral.Size = New System.Drawing.Size(183, 182)
         Me.pbLogoCentral.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -104,7 +126,7 @@ Partial Class Principal
         Me.panelTop.Location = New System.Drawing.Point(3, 3)
         Me.panelTop.Name = "panelTop"
         Me.panelTop.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
-        Me.panelTop.Size = New System.Drawing.Size(735, 35)
+        Me.panelTop.Size = New System.Drawing.Size(694, 35)
         Me.panelTop.TabIndex = 4
         '
         'btnMinimizar
@@ -117,7 +139,7 @@ Partial Class Principal
         Me.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMinimizar.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.btnMinimizar.Location = New System.Drawing.Point(645, 0)
+        Me.btnMinimizar.Location = New System.Drawing.Point(604, 0)
         Me.btnMinimizar.Name = "btnMinimizar"
         Me.btnMinimizar.Size = New System.Drawing.Size(30, 35)
         Me.btnMinimizar.TabIndex = 4
@@ -133,7 +155,7 @@ Partial Class Principal
         Me.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMaximizar.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.btnMaximizar.Location = New System.Drawing.Point(675, 0)
+        Me.btnMaximizar.Location = New System.Drawing.Point(634, 0)
         Me.btnMaximizar.Name = "btnMaximizar"
         Me.btnMaximizar.Size = New System.Drawing.Size(30, 35)
         Me.btnMaximizar.TabIndex = 5
@@ -160,7 +182,7 @@ Partial Class Principal
         Me.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCerrar.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.btnCerrar.Location = New System.Drawing.Point(705, 0)
+        Me.btnCerrar.Location = New System.Drawing.Point(664, 0)
         Me.btnCerrar.Name = "btnCerrar"
         Me.btnCerrar.Size = New System.Drawing.Size(30, 35)
         Me.btnCerrar.TabIndex = 6
@@ -171,12 +193,14 @@ Partial Class Principal
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(19, Byte), Integer), CType(CType(23, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(741, 402)
-        Me.Controls.Add(Me.panelBottom)
+        Me.ClientSize = New System.Drawing.Size(700, 400)
         Me.Controls.Add(Me.panelContainer)
+        Me.Controls.Add(Me.panelBottom)
         Me.Controls.Add(Me.panelMenu)
         Me.Controls.Add(Me.panelTop)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(700, 400)
         Me.Name = "Principal"
         Me.Padding = New System.Windows.Forms.Padding(3)
         Me.Text = "Tactica"
@@ -200,4 +224,5 @@ Partial Class Principal
     Friend WithEvents btnMinimizar As Button
     Friend WithEvents btnMaximizar As Button
     Friend WithEvents btnCerrar As Button
+    Friend WithEvents btnClientes As Button
 End Class

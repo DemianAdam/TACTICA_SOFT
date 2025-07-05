@@ -90,10 +90,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyInyection.vb" />
+    <Compile Include="FormFactory.vb" />
     <Compile Include="Forms\BaseForm.Designer.vb">
       <DependentUpon>BaseForm.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\BaseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCliente.Designer.vb">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -121,6 +128,12 @@
     <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\BaseForm.resx">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCliente.resx">
+      <DependentUpon>FormCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>
     </EmbeddedResource>
