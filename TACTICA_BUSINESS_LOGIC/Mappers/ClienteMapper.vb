@@ -1,8 +1,10 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Option Strict On
+Option Explicit On
+Imports System.Runtime.CompilerServices
 Imports TACTICA_DATA_ACCESS
 Friend Module ClienteMapper
     <Extension()>
-    Public Function ToModel(cliente As ClienteDTO)
+    Public Function ToModel(cliente As ClienteDTO) As Cliente
         Dim model As New Cliente With {
             .ID = cliente.Id,
             .Cliente = cliente.Cliente,
@@ -13,7 +15,7 @@ Friend Module ClienteMapper
     End Function
 
     <Extension()>
-    Public Function ToDTO(cliente As Cliente)
+    Public Function ToDTO(cliente As Cliente) As ClienteDTO
         Dim dto As New ClienteDTO With {
             .Id = cliente.ID,
             .Cliente = cliente.Cliente,
@@ -24,7 +26,7 @@ Friend Module ClienteMapper
     End Function
 
     <Extension()>
-    Public Function ToDTO(clientes As IEnumerable(Of Cliente))
-        Return clientes.Select(Function(c) c.ToDTO()).ToList()
+    Public Function ToDTO(clientes As IEnumerable(Of Cliente)) As IEnumerable(Of ClienteDTO)
+        Return clientes.Select(Function(c) c.ToDTO())
     End Function
 End Module

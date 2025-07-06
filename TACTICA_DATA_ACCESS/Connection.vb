@@ -12,14 +12,18 @@ Public Class Connection
         _connectionString = connectionStrings("DefaultConnection").ConnectionString
     End Sub
 
-    Public Function CreateConnection() As IDbConnection
+    Public Function CreateConnection() As Connection
         If _idbConnection Is Nothing Then
             _idbConnection = New SqlConnection(_connectionString)
         End If
         If _idbConnection.State <> ConnectionState.Open Then
             _idbConnection.Open()
         End If
-        Return _idbConnection
+        Return Me
+    End Function
+
+    Public Function CreateCommand() As IDbCommand
+        Return _idbConnection.CreateCommand()
     End Function
 
     Public Sub Dispose() Implements IDisposable.Dispose

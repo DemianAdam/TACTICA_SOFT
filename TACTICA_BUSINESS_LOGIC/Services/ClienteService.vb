@@ -10,7 +10,8 @@ Friend Class ClienteService
     End Sub
     Public Sub Add(entity As ClienteDTO) Implements IBaseService(Of ClienteDTO).Add
         Dim cliente = entity.ToModel()
-        _clienteRepository.Add(cliente)
+        Dim id As Integer = _clienteRepository.Add(cliente)
+        entity.Id = id
     End Sub
 
     Public Sub Update(entity As ClienteDTO) Implements IBaseService(Of ClienteDTO).Update

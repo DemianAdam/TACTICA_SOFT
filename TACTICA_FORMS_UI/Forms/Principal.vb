@@ -36,6 +36,5 @@ Public Class Principal
 
     Private Sub btnClientes_Click(sender As Object, e As EventArgs) Handles btnClientes.Click
         OpenForm(Of FormCliente)(panelContainer)
-
     End Sub
 End Class

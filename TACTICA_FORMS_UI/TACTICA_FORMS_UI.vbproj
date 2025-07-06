@@ -89,6 +89,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CustomButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DependencyInyection.vb" />
     <Compile Include="FormFactory.vb" />
     <Compile Include="Forms\BaseForm.Designer.vb">
@@ -183,6 +189,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\TACTICASOFT-nombre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\logocentral1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
