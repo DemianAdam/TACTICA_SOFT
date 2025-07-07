@@ -116,6 +116,12 @@
     <Compile Include="Forms\FormCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FormProducto.Designer.vb">
+      <DependentUpon>FormProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Helper\FormHelper.vb" />
     <Compile Include="Interfaces\IGetInput.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProducto.resx">
+      <DependentUpon>FormProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>

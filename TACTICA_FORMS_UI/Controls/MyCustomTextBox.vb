@@ -11,6 +11,7 @@ Public Class MyCustomTextBox
     Private _placeholderColor As Color
     Private _baseMask As String
     Private _baseEmptyMask As String
+    Private _numericOnly As Boolean
     Public Sub New()
         InitializeComponent()
         Me.Padding = New Padding(0)
@@ -20,9 +21,18 @@ Public Class MyCustomTextBox
         MaskedTextBox1.Font = Me.Font
         Me.Height = MaskedTextBox1.PreferredHeight + Me.Padding.Vertical
     End Sub
-    '<Category("Numeric")>
-    '<Description("Establece el Textbox para solo admitir numeros")>
-    'Public Property NumericOnly As Boolean
+
+    <Category("Numeric")>
+    <Description("Establece el Textbox para solo admitir numeros")>
+    Public Property NumericOnly As Boolean
+        Get
+            Return _numericOnly
+        End Get
+        Set(value As Boolean)
+            _numericOnly = value
+        End Set
+    End Property
+
     Public Property Mask As String
         Get
             Return _baseMask
@@ -166,5 +176,22 @@ Public Class MyCustomTextBox
     Public Event TextChangedPublic As EventHandler
     Private Sub MaskedTextBox1_TextChanged(sender As Object, e As EventArgs) Handles MaskedTextBox1.TextChanged
         RaiseEvent TextChangedPublic(Me, e)
+    End Sub
+
+    Private Sub MaskedTextBox1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MaskedTextBox1.KeyPress
+        If NumericOnly Then
+            ' Allow digits and control characters (Backspace, etc.)
+            If Char.IsDigit(e.KeyChar) OrElse Char.IsControl(e.KeyChar) Then
+                Exit Sub
+            End If
+
+            ' Allow only one decimal point (adapt "." if needed for locale)
+            If (e.KeyChar = "."c OrElse e.KeyChar = ","c) AndAlso Not Me.Text.Contains(e.KeyChar) Then
+                Exit Sub
+            End If
+
+            ' Otherwise, block the input
+            e.Handled = True
+        End If
     End Sub
 End Class

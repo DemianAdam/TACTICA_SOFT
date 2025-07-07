@@ -150,6 +150,7 @@ Partial Class FormCliente
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
         Me.txtBuscar.Mask = ""
         Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NumericOnly = False
         Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
         Me.txtBuscar.Placeholder = "Buscar"
         Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
@@ -170,6 +171,7 @@ Partial Class FormCliente
         Me.txtCorreo.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCorreo.Mask = ""
         Me.txtCorreo.Name = "txtCorreo"
+        Me.txtCorreo.NumericOnly = False
         Me.txtCorreo.Padding = New System.Windows.Forms.Padding(5)
         Me.txtCorreo.Placeholder = "Correo"
         Me.txtCorreo.PlaceholderColor = System.Drawing.Color.Gray
@@ -190,6 +192,7 @@ Partial Class FormCliente
         Me.txtTelefono.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTelefono.Mask = "(+99) 00-0000-0000"
         Me.txtTelefono.Name = "txtTelefono"
+        Me.txtTelefono.NumericOnly = False
         Me.txtTelefono.Padding = New System.Windows.Forms.Padding(5)
         Me.txtTelefono.Placeholder = "Telefono"
         Me.txtTelefono.PlaceholderColor = System.Drawing.Color.Gray
@@ -210,6 +213,7 @@ Partial Class FormCliente
         Me.txtCliente.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCliente.Mask = ""
         Me.txtCliente.Name = "txtCliente"
+        Me.txtCliente.NumericOnly = False
         Me.txtCliente.Padding = New System.Windows.Forms.Padding(5)
         Me.txtCliente.Placeholder = "Cliente"
         Me.txtCliente.PlaceholderColor = System.Drawing.Color.Gray
