@@ -116,6 +116,8 @@
     <Compile Include="Forms\FormCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Helper\FormHelper.vb" />
+    <Compile Include="Interfaces\IGetInput.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

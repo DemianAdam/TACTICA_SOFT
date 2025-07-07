@@ -20,7 +20,9 @@ Public Class MyCustomTextBox
         MaskedTextBox1.Font = Me.Font
         Me.Height = MaskedTextBox1.PreferredHeight + Me.Padding.Vertical
     End Sub
-
+    '<Category("Numeric")>
+    '<Description("Establece el Textbox para solo admitir numeros")>
+    'Public Property NumericOnly As Boolean
     Public Property Mask As String
         Get
             Return _baseMask
@@ -34,8 +36,8 @@ Public Class MyCustomTextBox
     End Property
     Protected Overrides Sub OnEnter(e As EventArgs)
         MyBase.OnEnter(e)
-        If Me.Text = Placeholder Then
-            Me.Text = String.Empty
+        If Me.MaskedTextBox1.Text = Placeholder Then
+            Me.MaskedTextBox1.Text = String.Empty
             If _baseMask IsNot Nothing Then
                 Me.MaskedTextBox1.Mask = _baseMask
             End If
@@ -43,21 +45,24 @@ Public Class MyCustomTextBox
             Me.ForeColor = _baseForeColor
 
         End If
-        Dim lastDigitIndex As Integer = 0
-
-        If Not String.IsNullOrEmpty(Me.Text) Then
-            For index As Integer = Me.Text.Length - 1 To 0 Step -1
-                Dim character As Char = Me.Text(index)
-                If Char.IsDigit(character) Then
-                    lastDigitIndex = index + 1
-                    Exit For
-                End If
-            Next
+        Dim caretPosition As Integer = Me.MaskedTextBox1.Text.Length
+        If Not String.IsNullOrEmpty(Me.MaskedTextBox1.Mask) Then
+            caretPosition = 0
+            If Not String.IsNullOrEmpty(Me.Text) Then
+                For index As Integer = Me.Text.Length - 1 To 0 Step -1
+                    Dim character As Char = Me.Text(index)
+                    If Char.IsDigit(character) Then
+                        caretPosition = index + 1
+                        Exit For
+                    End If
+                Next
+            End If
         End If
 
 
+
         BeginInvoke(New MethodInvoker(Sub()
-                                          MaskedTextBox1.SelectionStart = lastDigitIndex
+                                          MaskedTextBox1.SelectionStart = caretPosition
                                           MaskedTextBox1.SelectionLength = 0
                                       End Sub))
 
@@ -74,6 +79,7 @@ Public Class MyCustomTextBox
             Me.ForeColor = PlaceholderColor
         End If
     End Sub
+
     <Category("Placeholder")>
     <Description("Color usado como Placeholder")>
     Property PlaceholderColor As Color
@@ -139,7 +145,16 @@ Public Class MyCustomTextBox
             Return MaskedTextBox1.Text
         End Get
         Set(value As String)
-            MaskedTextBox1.Text = value
+            If Not String.IsNullOrEmpty(value) Then
+                MaskedTextBox1.Text = value
+                If value IsNot Placeholder Then
+                    MaskedTextBox1.ForeColor = _baseForeColor
+                End If
+            Else
+                MaskedTextBox1.Text = Placeholder
+                MaskedTextBox1.ForeColor = _placeholderColor
+            End If
+
         End Set
     End Property
 
