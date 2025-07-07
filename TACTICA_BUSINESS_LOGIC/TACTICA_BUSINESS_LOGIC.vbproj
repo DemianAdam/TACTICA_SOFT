@@ -20,7 +20,9 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>TACTICA_BUSINESS_LOGIC.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +31,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>TACTICA_BUSINESS_LOGIC.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -38,10 +42,10 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionInfer>On</OptionInfer>
+    <OptionInfer>Off</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.6, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -84,11 +88,13 @@
     <Compile Include="DTOs\VentaDTO.vb" />
     <Compile Include="DTOs\VentaItemsDTO.vb" />
     <Compile Include="Enums\ActionType.vb" />
+    <Compile Include="Exceptions\InvalidClienteException.vb" />
     <Compile Include="Interfaces\Event\IEvent.vb" />
     <Compile Include="Interfaces\Event\ITEvent.vb" />
     <Compile Include="Interfaces\IBaseService.vb" />
     <Compile Include="Interfaces\Cliente\IClienteService.vb" />
     <Compile Include="Interfaces\Event\IEventBus.vb" />
+    <Compile Include="Interfaces\IValidator.vb" />
     <Compile Include="Mappers\ClienteMapper.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -106,6 +112,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Services\ClienteService.vb" />
+    <Compile Include="Services\ClienteDTOValidator.vb" />
     <Compile Include="Services\Event\BaseEvent.vb" />
     <Compile Include="Services\Event\EventBus.vb" />
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿Public Class CustomButton
+﻿Imports System.ComponentModel
+
+Public Class CustomButton
     Inherits Button
 
     Public Sub New()
@@ -13,14 +15,5 @@
         Me.BackColor = Color.FromArgb(28, 28, 34)
     End Sub
 
-    Protected Overrides Sub OnMouseEnter(e As EventArgs)
-        MyBase.OnMouseEnter(e)
-        Me.FlatAppearance.BorderSize = 1
-    End Sub
 
-
-    Protected Overrides Sub OnMouseLeave(e As EventArgs)
-        MyBase.OnMouseLeave(e)
-        Me.FlatAppearance.BorderSize = 0
-    End Sub
 End Class

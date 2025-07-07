@@ -1,5 +1,4 @@
-﻿Option Strict On
-Option Explicit On
+﻿
 Imports System.Runtime.CompilerServices
 Imports TACTICA_DATA_ACCESS
 Friend Module ClienteMapper

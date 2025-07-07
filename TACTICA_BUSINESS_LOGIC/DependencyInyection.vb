@@ -5,6 +5,7 @@ Public Module DependencyInyection
     <Extension()>
     Public Sub AddBusinessLogic(services As IServiceCollection)
         services.AddSingleton(Of IEventBus, EventBus)()
+        services.AddSingleton(Of IValidator(Of ClienteDTO), ClienteDTOValidator)
         services.AddTransient(Of IClienteService, ClienteService)()
     End Sub
 End Module

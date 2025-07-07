@@ -1,5 +1,4 @@
-﻿Option Strict On
-Option Explicit On
+﻿
 Public Interface IBaseRepository(Of T)
     Function GetAll() As IEnumerable(Of T)
     Function GetById(id As Integer) As T

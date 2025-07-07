@@ -1,5 +1,4 @@
-﻿Option Strict On
-Option Explicit On
+﻿
 Imports System.Configuration
 Imports System.Data.SqlClient
 

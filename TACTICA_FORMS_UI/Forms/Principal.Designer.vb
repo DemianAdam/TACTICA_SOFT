@@ -24,6 +24,7 @@ Partial Class Principal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Principal))
         Me.panelMenu = New System.Windows.Forms.Panel()
+        Me.btnProductos = New TACTICA_FORMS_UI.CustomButton()
         Me.btnClientes = New TACTICA_FORMS_UI.CustomButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.panelBottom = New System.Windows.Forms.Panel()
@@ -46,6 +47,7 @@ Partial Class Principal
         'panelMenu
         '
         Me.panelMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.panelMenu.Controls.Add(Me.btnProductos)
         Me.panelMenu.Controls.Add(Me.btnClientes)
         Me.panelMenu.Controls.Add(Me.PictureBox1)
         Me.panelMenu.Dock = System.Windows.Forms.DockStyle.Left
@@ -54,6 +56,20 @@ Partial Class Principal
         Me.panelMenu.Padding = New System.Windows.Forms.Padding(10, 15, 10, 0)
         Me.panelMenu.Size = New System.Drawing.Size(179, 509)
         Me.panelMenu.TabIndex = 1
+        '
+        'btnProductos
+        '
+        Me.btnProductos.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProductos.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnProductos.ForeColor = System.Drawing.Color.White
+        Me.btnProductos.Location = New System.Drawing.Point(10, 123)
+        Me.btnProductos.Name = "btnProductos"
+        Me.btnProductos.Size = New System.Drawing.Size(161, 46)
+        Me.btnProductos.TabIndex = 3
+        Me.btnProductos.Text = "Productos"
+        Me.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnProductos.UseVisualStyleBackColor = True
         '
         'btnClientes
         '
@@ -238,4 +254,5 @@ Partial Class Principal
     Friend WithEvents btnCerrar As Button
     Friend WithEvents btnClientes As CustomButton
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnProductos As CustomButton
 End Class

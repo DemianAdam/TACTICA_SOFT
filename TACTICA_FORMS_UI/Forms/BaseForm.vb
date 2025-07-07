@@ -79,7 +79,7 @@ Public Class BaseForm
     Protected Sub OpenForm(Of T As Form)(panel As Panel)
         If TypeOf displayedForm IsNot T Then
             displayedForm?.Close()
-            Dim form As T = formFactory.CreateForm(Of T)()
+            Dim form As Form = formFactory.CreateForm(Of T)()
             displayedForm = form
             form.TopLevel = False
             form.FormBorderStyle = FormBorderStyle.None
