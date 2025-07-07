@@ -72,4 +72,21 @@ Public Class FormCliente
         txtCorreo.Text = selectedCliente.Correo
         txtTelefono.Text = selectedCliente.Telefono
     End Sub
+
+    Private Sub txtBuscar_TextChangedPublic(sender As Object, e As EventArgs) Handles txtBuscar.TextChangedPublic
+        Dim text As String = txtBuscar.Text
+
+        If listaClientes Is Nothing Then
+            Return
+        End If
+
+        If String.IsNullOrEmpty(text) OrElse text = txtBuscar.Placeholder Then
+            dgvClientes.DataSource = listaClientes
+        Else
+            Dim filtered As List(Of ClienteDTO) = listaClientes.Where(Function(x) x.Correo Like $"*{text}*" OrElse x.Cliente Like $"*{text}*" OrElse x.Telefono Like $"*{text}*").ToList()
+            dgvClientes.DataSource = filtered
+        End If
+
+
+    End Sub
 End Class

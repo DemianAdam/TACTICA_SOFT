@@ -28,10 +28,10 @@ Partial Class FormCliente
         Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
+        Me.txtBuscar = New TACTICA_FORMS_UI.MyCustomTextBox()
         Me.txtCorreo = New TACTICA_FORMS_UI.MyCustomTextBox()
         Me.txtTelefono = New TACTICA_FORMS_UI.MyCustomTextBox()
         Me.txtCliente = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.MyCustomTextBox1 = New TACTICA_FORMS_UI.MyCustomTextBox()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -137,6 +137,26 @@ Partial Class FormCliente
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
+        'txtBuscar
+        '
+        Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscar.AutoSize = True
+        Me.txtBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.txtBuscar.ForeColor = System.Drawing.Color.White
+        Me.txtBuscar.Location = New System.Drawing.Point(165, 24)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtBuscar.Mask = ""
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
+        Me.txtBuscar.Placeholder = "Buscar"
+        Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
+        Me.txtBuscar.Size = New System.Drawing.Size(248, 41)
+        Me.txtBuscar.TabIndex = 24
+        Me.txtBuscar.Text = "Buscar"
+        '
         'txtCorreo
         '
         Me.txtCorreo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -197,33 +217,13 @@ Partial Class FormCliente
         Me.txtCliente.TabIndex = 21
         Me.txtCliente.Text = "Cliente"
         '
-        'MyCustomTextBox1
-        '
-        Me.MyCustomTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MyCustomTextBox1.AutoSize = True
-        Me.MyCustomTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.MyCustomTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MyCustomTextBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.MyCustomTextBox1.ForeColor = System.Drawing.Color.White
-        Me.MyCustomTextBox1.Location = New System.Drawing.Point(165, 24)
-        Me.MyCustomTextBox1.Margin = New System.Windows.Forms.Padding(0)
-        Me.MyCustomTextBox1.Mask = ""
-        Me.MyCustomTextBox1.Name = "MyCustomTextBox1"
-        Me.MyCustomTextBox1.Padding = New System.Windows.Forms.Padding(5)
-        Me.MyCustomTextBox1.Placeholder = "Buscar"
-        Me.MyCustomTextBox1.PlaceholderColor = System.Drawing.Color.Gray
-        Me.MyCustomTextBox1.Size = New System.Drawing.Size(248, 41)
-        Me.MyCustomTextBox1.TabIndex = 24
-        Me.MyCustomTextBox1.Text = "Buscar"
-        '
         'FormCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(428, 472)
-        Me.Controls.Add(Me.MyCustomTextBox1)
+        Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.txtCorreo)
         Me.Controls.Add(Me.txtTelefono)
         Me.Controls.Add(Me.txtCliente)
@@ -251,5 +251,5 @@ Partial Class FormCliente
     Friend WithEvents txtCliente As MyCustomTextBox
     Friend WithEvents txtTelefono As MyCustomTextBox
     Friend WithEvents txtCorreo As MyCustomTextBox
-    Friend WithEvents MyCustomTextBox1 As MyCustomTextBox
+    Friend WithEvents txtBuscar As MyCustomTextBox
 End Class

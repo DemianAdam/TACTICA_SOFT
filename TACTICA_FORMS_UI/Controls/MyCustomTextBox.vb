@@ -42,7 +42,7 @@ Public Class MyCustomTextBox
                 Me.MaskedTextBox1.Mask = _baseMask
             End If
 
-            Me.ForeColor = _baseForeColor
+            MaskedTextBox1.ForeColor = _baseForeColor
 
         End If
         Dim caretPosition As Integer = Me.MaskedTextBox1.Text.Length
@@ -72,11 +72,11 @@ Public Class MyCustomTextBox
         MyBase.OnLeave(e)
         If Me.Text = _baseEmptyMask Then
             Me.MaskedTextBox1.Mask = Nothing
-            Me.Text = ""
+            Me.MaskedTextBox1.Text = ""
         End If
         If String.IsNullOrEmpty(Me.Text) Then
-            Me.Text = Placeholder
-            Me.ForeColor = PlaceholderColor
+            Me.MaskedTextBox1.Text = Placeholder
+            Me.MaskedTextBox1.ForeColor = PlaceholderColor
         End If
     End Sub
 
@@ -103,10 +103,6 @@ Public Class MyCustomTextBox
     End Property
 
 
-    Protected Overrides Sub OnForeColorChanged(e As EventArgs)
-        MyBase.OnForeColorChanged(e)
-        MaskedTextBox1.ForeColor = Me.ForeColor
-    End Sub
     Public Overrides Property BackColor As Color
         Get
             Return MyBase.BackColor
@@ -145,14 +141,12 @@ Public Class MyCustomTextBox
             Return MaskedTextBox1.Text
         End Get
         Set(value As String)
-            If Not String.IsNullOrEmpty(value) Then
-                MaskedTextBox1.Text = value
-                If value IsNot Placeholder Then
-                    MaskedTextBox1.ForeColor = _baseForeColor
-                End If
-            Else
+            If String.IsNullOrEmpty(value) OrElse value = Placeholder Then
                 MaskedTextBox1.Text = Placeholder
                 MaskedTextBox1.ForeColor = _placeholderColor
+            Else
+                MaskedTextBox1.Text = value
+                MaskedTextBox1.ForeColor = _baseForeColor
             End If
 
         End Set
@@ -167,5 +161,10 @@ Public Class MyCustomTextBox
             Me.Text = Placeholder
 
         End If
+    End Sub
+
+    Public Event TextChangedPublic As EventHandler
+    Private Sub MaskedTextBox1_TextChanged(sender As Object, e As EventArgs) Handles MaskedTextBox1.TextChanged
+        RaiseEvent TextChangedPublic(Me, e)
     End Sub
 End Class
