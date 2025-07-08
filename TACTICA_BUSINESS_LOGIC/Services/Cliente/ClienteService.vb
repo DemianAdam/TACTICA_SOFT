@@ -18,12 +18,12 @@ Friend Class ClienteService
     End Sub
 
     Public Sub Update(entity As ClienteDTO) Implements IBaseService(Of ClienteDTO).Update
+        _clienteValidator.Validate(entity)
         Dim cliente As Cliente = entity.ToModel()
         _clienteRepository.Update(cliente)
     End Sub
 
     Public Sub Delete(entity As ClienteDTO) Implements IBaseService(Of ClienteDTO).Delete
-
         If entity.Ventas IsNot Nothing AndAlso entity.Ventas.Any() Then
             Throw New InvalidOperationException("No se puede eliminar un cliente que tiene ventas asociadas.")
         End If

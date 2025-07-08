@@ -89,13 +89,16 @@
     <Compile Include="DTOs\VentaItemsDTO.vb" />
     <Compile Include="Enums\ActionType.vb" />
     <Compile Include="Exceptions\InvalidClienteException.vb" />
+    <Compile Include="Exceptions\InvalidProductoException.vb" />
     <Compile Include="Interfaces\Event\IEvent.vb" />
     <Compile Include="Interfaces\Event\ITEvent.vb" />
     <Compile Include="Interfaces\IBaseService.vb" />
     <Compile Include="Interfaces\Cliente\IClienteService.vb" />
     <Compile Include="Interfaces\Event\IEventBus.vb" />
     <Compile Include="Interfaces\IValidator.vb" />
+    <Compile Include="Interfaces\Producto\IProductoService.vb" />
     <Compile Include="Mappers\ClienteMapper.vb" />
+    <Compile Include="Mappers\ProductoMapper.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -111,10 +114,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Services\ClienteService.vb" />
-    <Compile Include="Services\ClienteDTOValidator.vb" />
+    <Compile Include="Services\Cliente\ClienteService.vb" />
+    <Compile Include="Services\Cliente\ClienteDTOValidator.vb" />
     <Compile Include="Services\Event\BaseEvent.vb" />
     <Compile Include="Services\Event\EventBus.vb" />
+    <Compile Include="Services\Producto\ProductoDTOValidator.vb" />
+    <Compile Include="Services\Producto\ProductoService.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

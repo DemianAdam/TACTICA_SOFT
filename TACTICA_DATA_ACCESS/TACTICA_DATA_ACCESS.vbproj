@@ -85,6 +85,7 @@
     <Compile Include="DependencyInyection.vb" />
     <Compile Include="Interfaces\IBaseRepository.vb" />
     <Compile Include="Interfaces\IClienteRepository.vb" />
+    <Compile Include="Interfaces\IProductoRespository.vb" />
     <Compile Include="Models\Cliente.vb" />
     <Compile Include="Models\Item.vb" />
     <Compile Include="Models\Producto.vb" />
@@ -105,6 +106,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Repositories\ClienteRepository.vb" />
+    <Compile Include="Repositories\ProductoRepository.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
