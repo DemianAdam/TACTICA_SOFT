@@ -35,6 +35,9 @@ Public Class Principal
         OpenForm(Of FormCliente)(panelContainer)
     End Sub
 
+    Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
+        OpenForm(Of FormProducto)(panelContainer)
+    End Sub
     Private Sub BaseClick(sender As Object, e As EventArgs) Handles btnClientes.Click, btnProductos.Click
         Dim button As Button = DirectCast(sender, Button)
         If lastClickedButton IsNot Nothing AndAlso button IsNot lastClickedButton Then

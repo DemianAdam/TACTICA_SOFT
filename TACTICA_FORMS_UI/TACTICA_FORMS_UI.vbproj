@@ -96,10 +96,16 @@
     <Compile Include="Controls\CustomButton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\MyCustomTextBox.Designer.vb">
-      <DependentUpon>MyCustomTextBox.vb</DependentUpon>
+    <Compile Include="Controls\CustomTextBox.Designer.vb">
+      <DependentUpon>CustomTextBox.vb</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MyCustomTextBox.vb">
+    <Compile Include="Controls\CustomTextBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlaceholderComboBox.Designer.vb">
+      <DependentUpon>PlaceholderComboBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlaceholderComboBox.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="DependencyInyection.vb" />
@@ -149,8 +155,11 @@
     <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\MyCustomTextBox.resx">
-      <DependentUpon>MyCustomTextBox.vb</DependentUpon>
+    <EmbeddedResource Include="Controls\CustomTextBox.resx">
+      <DependentUpon>CustomTextBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlaceholderComboBox.resx">
+      <DependentUpon>PlaceholderComboBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.vb</DependentUpon>

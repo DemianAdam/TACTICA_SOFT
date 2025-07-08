@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing.Design
 
-Public Class MyCustomTextBox
+Public Class CustomTextBox
     Inherits UserControl
     Private _baseForeColorSetted As Boolean = False
     Private _placeholdeColorSetted As Boolean = False
@@ -21,6 +21,18 @@ Public Class MyCustomTextBox
         MaskedTextBox1.Font = Me.Font
         Me.Height = MaskedTextBox1.PreferredHeight + Me.Padding.Vertical
     End Sub
+
+    Public Property Value As Decimal?
+        Get
+            If Not NumericOnly Then
+                Throw New InvalidOperationException("El Textbox no es numerico")
+            End If
+            Return Convert.ToDecimal(Me.Text)
+        End Get
+        Set(value As Decimal?)
+            Me.Text = value.ToString()
+        End Set
+    End Property
 
     <Category("Numeric")>
     <Description("Establece el Textbox para solo admitir numeros")>

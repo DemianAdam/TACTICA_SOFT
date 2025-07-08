@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class MyCustomTextBox
+Partial Class CustomTextBox
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
@@ -40,21 +40,22 @@ Partial Class MyCustomTextBox
         '
         'MaskedTextBox1
         '
+        Me.MaskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.MaskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MaskedTextBox1.Location = New System.Drawing.Point(0, 0)
         Me.MaskedTextBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(340, 20)
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(340, 13)
         Me.MaskedTextBox1.TabIndex = 0
         '
-        'MyCustomTextBox
+        'CustomTextBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Controls.Add(Me.Panel1)
-        Me.Name = "MyCustomTextBox"
+        Me.Name = "CustomTextBox"
         Me.Size = New System.Drawing.Size(340, 134)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

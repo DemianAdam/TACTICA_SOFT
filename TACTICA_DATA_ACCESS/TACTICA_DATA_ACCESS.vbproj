@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Repositories\ClienteRepository.vb" />
     <Compile Include="Repositories\ProductoRepository.vb" />
+    <Compile Include="RepositoryHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

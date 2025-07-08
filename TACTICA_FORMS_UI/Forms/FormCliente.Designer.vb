@@ -28,10 +28,10 @@ Partial Class FormCliente
         Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
-        Me.txtBuscar = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtCorreo = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtTelefono = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtCliente = New TACTICA_FORMS_UI.MyCustomTextBox()
+        Me.txtBuscar = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtCorreo = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtTelefono = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtCliente = New TACTICA_FORMS_UI.CustomTextBox()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
@@ -252,8 +252,8 @@ Partial Class FormCliente
     Friend WithEvents btnEliminar As CustomButton
     Friend WithEvents Label1 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents txtCliente As MyCustomTextBox
-    Friend WithEvents txtTelefono As MyCustomTextBox
-    Friend WithEvents txtCorreo As MyCustomTextBox
-    Friend WithEvents txtBuscar As MyCustomTextBox
+    Friend WithEvents txtCliente As CustomTextBox
+    Friend WithEvents txtTelefono As CustomTextBox
+    Friend WithEvents txtCorreo As CustomTextBox
+    Friend WithEvents txtBuscar As CustomTextBox
 End Class

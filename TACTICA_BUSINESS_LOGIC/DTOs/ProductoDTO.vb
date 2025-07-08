@@ -3,4 +3,5 @@
     Property Nombre As String
     Property Precio As Decimal?
     Property Categoria As String
+    Property Items As List(Of VentaItemsDTO)
 End Class

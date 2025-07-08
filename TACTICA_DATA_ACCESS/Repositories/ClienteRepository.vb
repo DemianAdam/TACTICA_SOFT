@@ -15,9 +15,11 @@ Friend Class ClienteRepository
         Using connection As Connection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
+                Dim telefono As Object = RepositoryHelper.FormatNullableValue(entity.Telefono)
+                Dim correo As Object = RepositoryHelper.FormatNullableValue(entity.Correo)
                 command.Parameters.Add(New SqlParameter("@Cliente", entity.Cliente))
-                command.Parameters.Add(New SqlParameter("@Telefono", entity.Telefono))
-                command.Parameters.Add(New SqlParameter("@Correo", entity.Correo))
+                command.Parameters.Add(New SqlParameter("@Telefono", telefono))
+                command.Parameters.Add(New SqlParameter("@Correo", correo))
                 Dim id As Integer = CType(command.ExecuteScalar(), Integer)
                 Return id
             End Using
@@ -29,10 +31,12 @@ Friend Class ClienteRepository
         Using connection As Connection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
+                Dim telefono As Object = RepositoryHelper.FormatNullableValue(entity.Telefono)
+                Dim correo As Object = RepositoryHelper.FormatNullableValue(entity.Correo)
                 command.Parameters.Add(New SqlParameter("@Id", entity.ID))
                 command.Parameters.Add(New SqlParameter("@Cliente", entity.Cliente))
-                command.Parameters.Add(New SqlParameter("@Telefono", entity.Telefono))
-                command.Parameters.Add(New SqlParameter("@Correo", entity.Correo))
+                command.Parameters.Add(New SqlParameter("@Telefono", telefono))
+                command.Parameters.Add(New SqlParameter("@Correo", correo))
                 command.ExecuteNonQuery()
             End Using
         End Using
@@ -60,8 +64,8 @@ Friend Class ClienteRepository
                         Dim cliente As New Cliente() With {
                             .ID = Convert.ToInt32(reader("Id")),
                             .Cliente = Convert.ToString(reader("Cliente")),
-                            .Telefono = Convert.ToString(reader("Telefono")),
-                            .Correo = Convert.ToString(reader("Correo"))
+                            .Telefono = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Telefono"))),
+                            .Correo = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Correo")))
                         }
                         clientes.Add(cliente)
                     End While
@@ -82,8 +86,8 @@ Friend Class ClienteRepository
                         Return New Cliente() With {
                             .ID = Convert.ToInt32(reader("Id")),
                             .Cliente = Convert.ToString(reader("Cliente")),
-                            .Telefono = Convert.ToString(reader("Telefono")),
-                            .Correo = Convert.ToString(reader("Correo"))
+                            .Telefono = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Telefono"))),
+                            .Correo = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Correo")))
                         }
                     End If
                 End Using

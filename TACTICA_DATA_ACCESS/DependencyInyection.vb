@@ -9,5 +9,6 @@ Public Module DependencyInyection
         services.AddSingleton(Of ConnectionStringSettingsCollection)(connectionStrings)
         services.AddTransient(Of Connection)()
         services.AddTransient(Of IClienteRepository, ClienteRepository)()
+        services.AddTransient(Of IProductoRespository, ProductoRepository)()
     End Sub
 End Module

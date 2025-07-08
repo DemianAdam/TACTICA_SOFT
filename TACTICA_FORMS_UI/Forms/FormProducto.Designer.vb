@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormProducto
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,16 @@ Partial Class FormProducto
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
-        Me.txtBuscar = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtCategoria = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtPrecio = New TACTICA_FORMS_UI.MyCustomTextBox()
-        Me.txtNombre = New TACTICA_FORMS_UI.MyCustomTextBox()
+        Me.cmbCategoria = New TACTICA_FORMS_UI.PlaceholderComboBox()
+        Me.txtBuscar = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtCategoria = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtPrecio = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.txtNombre = New TACTICA_FORMS_UI.CustomTextBox()
         Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
@@ -80,6 +81,21 @@ Partial Class FormProducto
         Me.dgvProductos.Size = New System.Drawing.Size(406, 206)
         Me.dgvProductos.TabIndex = 25
         '
+        'cmbCategoria
+        '
+        Me.cmbCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.cmbCategoria.ForeColor = System.Drawing.Color.White
+        Me.cmbCategoria.Location = New System.Drawing.Point(292, 22)
+        Me.cmbCategoria.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmbCategoria.Name = "cmbCategoria"
+        Me.cmbCategoria.Placeholder = "Categoria"
+        Me.cmbCategoria.PlaceholderColor = System.Drawing.Color.Gray
+        Me.cmbCategoria.SelectedItem = "Categoria"
+        Me.cmbCategoria.Size = New System.Drawing.Size(122, 40)
+        Me.cmbCategoria.TabIndex = 32
+        Me.cmbCategoria.Text = "Categoria"
+        '
         'txtBuscar
         '
         Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -89,7 +105,7 @@ Partial Class FormProducto
         Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtBuscar.ForeColor = System.Drawing.Color.White
-        Me.txtBuscar.Location = New System.Drawing.Point(203, 21)
+        Me.txtBuscar.Location = New System.Drawing.Point(194, 21)
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
         Me.txtBuscar.Mask = ""
         Me.txtBuscar.Name = "txtBuscar"
@@ -97,7 +113,7 @@ Partial Class FormProducto
         Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
         Me.txtBuscar.Placeholder = "Buscar"
         Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
-        Me.txtBuscar.Size = New System.Drawing.Size(211, 41)
+        Me.txtBuscar.Size = New System.Drawing.Size(84, 41)
         Me.txtBuscar.TabIndex = 31
         Me.txtBuscar.Text = "Buscar"
         '
@@ -133,9 +149,9 @@ Partial Class FormProducto
         Me.txtPrecio.ForeColor = System.Drawing.Color.White
         Me.txtPrecio.Location = New System.Drawing.Point(14, 119)
         Me.txtPrecio.Margin = New System.Windows.Forms.Padding(0)
-        Me.txtPrecio.Mask = "(+99) 00-0000-0000"
+        Me.txtPrecio.Mask = ""
         Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.NumericOnly = False
+        Me.txtPrecio.NumericOnly = True
         Me.txtPrecio.Padding = New System.Windows.Forms.Padding(5)
         Me.txtPrecio.Placeholder = "Precio"
         Me.txtPrecio.PlaceholderColor = System.Drawing.Color.Gray
@@ -227,6 +243,7 @@ Partial Class FormProducto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(428, 472)
+        Me.Controls.Add(Me.cmbCategoria)
         Me.Controls.Add(Me.txtBuscar)
         Me.Controls.Add(Me.txtCategoria)
         Me.Controls.Add(Me.txtPrecio)
@@ -246,14 +263,15 @@ Partial Class FormProducto
 
     End Sub
 
-    Friend WithEvents txtBuscar As MyCustomTextBox
-    Friend WithEvents txtCategoria As MyCustomTextBox
-    Friend WithEvents txtPrecio As MyCustomTextBox
-    Friend WithEvents txtNombre As MyCustomTextBox
+    Friend WithEvents txtBuscar As CustomTextBox
+    Friend WithEvents txtCategoria As CustomTextBox
+    Friend WithEvents txtPrecio As CustomTextBox
+    Friend WithEvents txtNombre As CustomTextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents btnAgregar As CustomButton
     Friend WithEvents btnModificar As CustomButton
     Friend WithEvents btnEliminar As CustomButton
     Friend WithEvents Label1 As Label
     Friend WithEvents dgvProductos As DataGridView
+    Friend WithEvents cmbCategoria As PlaceholderComboBox
 End Class

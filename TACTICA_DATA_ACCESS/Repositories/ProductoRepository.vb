@@ -12,9 +12,13 @@ Public Class ProductoRepository
         Using connection As Connection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
-                command.Parameters.Add(New SqlParameter("@Nombre", entity.Nombre))
-                command.Parameters.Add(New SqlParameter("@Precio", entity.Precio))
-                command.Parameters.Add(New SqlParameter("@Categoria", entity.Categoria))
+                Dim nombre As Object = RepositoryHelper.FormatNullableValue(entity.Nombre)
+                Dim precio As Object = RepositoryHelper.FormatNullableValue(entity.Precio)
+                Dim categoria As Object = RepositoryHelper.FormatNullableValue(entity.Categoria)
+
+                command.Parameters.Add(New SqlParameter("@Nombre", nombre))
+                command.Parameters.Add(New SqlParameter("@Precio", precio))
+                command.Parameters.Add(New SqlParameter("@Categoria", categoria))
                 Dim id As Integer = CType(command.ExecuteScalar(), Integer)
                 Return id
             End Using
@@ -25,10 +29,13 @@ Public Class ProductoRepository
         Using connection As Connection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
+                Dim nombre As Object = RepositoryHelper.FormatNullableValue(entity.Nombre)
+                Dim precio As Object = RepositoryHelper.FormatNullableValue(entity.Precio)
+                Dim categoria As Object = RepositoryHelper.FormatNullableValue(entity.Categoria)
                 command.Parameters.Add(New SqlParameter("@Id", entity.ID))
-                command.Parameters.Add(New SqlParameter("@Nombre", entity.Nombre))
-                command.Parameters.Add(New SqlParameter("@Precio", entity.Precio))
-                command.Parameters.Add(New SqlParameter("@Categoria", entity.Categoria))
+                command.Parameters.Add(New SqlParameter("@Nombre", nombre))
+                command.Parameters.Add(New SqlParameter("@Precio", precio))
+                command.Parameters.Add(New SqlParameter("@Categoria", categoria))
                 command.ExecuteNonQuery()
             End Using
         End Using
@@ -73,8 +80,8 @@ Public Class ProductoRepository
                         Dim producto As New Producto() With {
                             .ID = Convert.ToInt32(reader("ID")),
                             .Nombre = Convert.ToString(reader("Nombre")),
-                            .Precio = Convert.ToDecimal(reader("Precio")),
-                            .Categoria = Convert.ToString(reader("Categoria"))
+                            .Precio = Convert.ToDecimal(RepositoryHelper.GetNullableValue(reader("Precio"))),
+                            .Categoria = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Categoria")))
                             }
                         productos.Add(producto)
                     End While
@@ -94,8 +101,8 @@ Public Class ProductoRepository
                         Return New Producto() With {
                              .ID = Convert.ToInt32(reader("ID")),
                             .Nombre = Convert.ToString(reader("Nombre")),
-                            .Precio = Convert.ToDecimal(reader("Precio")),
-                            .Categoria = Convert.ToString(reader("Categoria"))
+                            .Precio = Convert.ToDecimal(RepositoryHelper.GetNullableValue(reader("Precio"))),
+                            .Categoria = Convert.ToString(RepositoryHelper.GetNullableValue(reader("Categoria")))
                         }
                     End If
                 End Using
