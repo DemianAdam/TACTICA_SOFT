@@ -2,7 +2,7 @@
 Imports TACTICA_BUSINESS_LOGIC
 
 Public Class FormProducto
-    Implements IGetInput(Of ProductoDTO)
+    Implements IDataForm(Of ProductoDTO)
 
     Private ReadOnly _productoService As IProductoService
     Private ReadOnly _listaProductos As BindingList(Of ProductoDTO)
@@ -22,7 +22,7 @@ Public Class FormProducto
         cmbCategoria.Datasource = _listaCategorias
     End Sub
 
-    Public Function GetObjectFromInputs(Optional id As Integer = -1) As ProductoDTO Implements IGetInput(Of ProductoDTO).GetObjectFromInputs
+    Public Function GetObjectFromInputs(Optional id As Integer = -1) As ProductoDTO Implements IDataForm(Of ProductoDTO).GetObjectFromInputs
         Dim categoria As String = If(txtCategoria.Text = txtCategoria.Placeholder, Nothing, txtCategoria.Text)
         Dim nombre As String = If(txtNombre.Text = txtNombre.Placeholder, Nothing, txtNombre.Text)
         Dim precio As Decimal? = If(txtPrecio.Text = txtPrecio.Placeholder, Nothing, txtPrecio.Value)
@@ -44,6 +44,7 @@ Public Class FormProducto
         Try
             _productoService.Add(producto)
             _listaProductos.Add(producto)
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Agregar el Producto: " + ex.Message)
         End Try
@@ -58,6 +59,7 @@ Public Class FormProducto
             producto.Precio = updatedProducto.Precio
             producto.Categoria = updatedProducto.Categoria
             dgvProductos.Refresh()
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Modificar el Producto: " + ex.Message)
         End Try
@@ -68,6 +70,7 @@ Public Class FormProducto
         Try
             _productoService.Delete(producto)
             _listaProductos.Remove(producto)
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Eliminar el Producto: " + ex.Message)
         End Try
@@ -75,9 +78,7 @@ Public Class FormProducto
 
     Private Sub dgvProductos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProductos.CellClick
         _selectedProducto = FormHelper.GetSelected(Of ProductoDTO)(dgvProductos)
-        txtNombre.Text = _selectedProducto.Nombre
-        txtPrecio.Value = _selectedProducto.Precio
-        txtCategoria.Text = _selectedProducto.Categoria
+        SetInputs(_selectedProducto)
     End Sub
 
     Private Sub txtBuscar_TextChangedPublic(sender As Object, e As EventArgs) Handles txtBuscar.TextChangedPublic
@@ -119,5 +120,13 @@ Public Class FormProducto
         End If
 
         dgvProductos.DataSource = filtered
+    End Sub
+
+    Public Sub SetInputs(obj As ProductoDTO) Implements IDataForm(Of ProductoDTO).SetInputs
+        Throw New NotImplementedException()
+    End Sub
+
+    Public Sub ClearInputs() Implements IDataForm(Of ProductoDTO).ClearInputs
+        Throw New NotImplementedException()
     End Sub
 End Class

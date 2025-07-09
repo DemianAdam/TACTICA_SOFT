@@ -164,6 +164,7 @@ Public Class CustomTextBox
         End Get
         Set(value As String)
             If String.IsNullOrEmpty(value) OrElse value = Placeholder Then
+                Me.MaskedTextBox1.Mask = Nothing
                 MaskedTextBox1.Text = Placeholder
                 MaskedTextBox1.ForeColor = _placeholderColor
             Else

@@ -6,7 +6,7 @@ Imports TACTICA_BUSINESS_LOGIC
 Imports TACTICA_DATA_ACCESS
 
 Public Class FormCliente
-    Implements IGetInput(Of ClienteDTO)
+    Implements IDataForm(Of ClienteDTO)
     Private ReadOnly _clienteService As IClienteService
     Private ReadOnly _listaClientes As BindingList(Of ClienteDTO)
     Private _selectedCliente As ClienteDTO
@@ -27,6 +27,7 @@ Public Class FormCliente
         Try
             _clienteService.Add(cliente)
             _listaClientes.Add(cliente)
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Agregar el Cliente: " + ex.Message)
         End Try
@@ -41,8 +42,8 @@ Public Class FormCliente
             cliente.Cliente = updatedCliente.Cliente
             cliente.Telefono = updatedCliente.Telefono
             cliente.Correo = updatedCliente.Correo
-
             dgvClientes.Refresh()
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Modificar el Cliente: " + ex.Message)
         End Try
@@ -54,12 +55,13 @@ Public Class FormCliente
         Try
             _clienteService.Delete(cliente)
             _listaClientes.Remove(cliente)
+            ClearInputs()
         Catch ex As Exception
             MessageBox.Show("Error al Eliminar el Cliente: " + ex.Message)
         End Try
     End Sub
 
-    Public Function GetObjectFromInputs(Optional id As Integer = -1) As ClienteDTO Implements IGetInput(Of ClienteDTO).GetObjectFromInputs
+    Public Function GetObjectFromInputs(Optional id As Integer = -1) As ClienteDTO Implements IDataForm(Of ClienteDTO).GetObjectFromInputs
         Dim cliente As String = If(txtCliente.Text = txtCliente.Placeholder, Nothing, txtCliente.Text)
         Dim telefono As String = If(txtTelefono.Text = txtTelefono.Placeholder, Nothing, txtTelefono.Text)
         Dim correo As String = If(txtCorreo.Text = txtCorreo.Placeholder, Nothing, txtCorreo.Text)
@@ -78,9 +80,7 @@ Public Class FormCliente
 
     Private Sub dgvClientes_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellClick
         _selectedCliente = FormHelper.GetSelected(Of ClienteDTO)(dgvClientes)
-        txtCliente.Text = _selectedCliente.Cliente
-        txtCorreo.Text = _selectedCliente.Correo
-        txtTelefono.Text = _selectedCliente.Telefono
+        Me.SetInputs(_selectedCliente)
     End Sub
 
     Private Sub txtBuscar_TextChangedPublic(sender As Object, e As EventArgs) Handles txtBuscar.TextChangedPublic
@@ -96,5 +96,15 @@ Public Class FormCliente
             Dim filtered As List(Of ClienteDTO) = _listaClientes.Where(Function(x) x.Correo Like $"*{text}*" OrElse x.Cliente Like $"*{text}*" OrElse x.Telefono Like $"*{text}*").ToList()
             dgvClientes.DataSource = filtered
         End If
+    End Sub
+
+    Public Sub SetInputs(obj As ClienteDTO) Implements IDataForm(Of ClienteDTO).SetInputs
+        txtCliente.Text = obj.Cliente
+        txtCorreo.Text = obj.Correo
+        txtTelefono.Text = obj.Telefono
+    End Sub
+
+    Public Sub ClearInputs() Implements IDataForm(Of ClienteDTO).ClearInputs
+        SetInputs(New ClienteDTO())
     End Sub
 End Class
