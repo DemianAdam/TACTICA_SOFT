@@ -125,7 +125,7 @@ Public Class FormProducto
     Public Sub SetInputs(obj As ProductoDTO) Implements IDataForm(Of ProductoDTO).SetInputs
         txtNombre.Text = obj.Nombre
         txtCategoria.Text = obj.Categoria
-        txtPrecio.Value = obj.Precio
+        txtPrecio.Value = If(obj.Precio, 0)
     End Sub
 
     Public Sub ClearInputs() Implements IDataForm(Of ProductoDTO).ClearInputs

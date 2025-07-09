@@ -22,17 +22,32 @@ Public Class CustomTextBox
         Me.Height = MaskedTextBox1.PreferredHeight + Me.Padding.Vertical
     End Sub
 
-    Public Property Value As Decimal?
+    <Browsable(False)>
+    <DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)>
+    Public Property Value As Decimal
         Get
-            If Not NumericOnly Then
+            If isInDesignMode Then Return 0
+            If Not NumericOnly Then Return 0
+
+            Dim textValue As String = Me.Text
+
+            If String.IsNullOrWhiteSpace(textValue) OrElse textValue = Placeholder Then
                 Return 0
             End If
-            Return Convert.ToDecimal(Me.Text)
+
+            Dim result As Decimal
+            If Decimal.TryParse(textValue, Globalization.NumberStyles.Any, Globalization.CultureInfo.CurrentCulture, result) Then
+                Return result
+            End If
+
+            Return 0
         End Get
-        Set(value As Decimal?)
+        Set(value As Decimal)
+            If isInDesignMode Then Return
             Me.Text = value.ToString()
         End Set
     End Property
+
 
     <Category("Numeric")>
     <Description("Establece el Textbox para solo admitir numeros")>
@@ -121,6 +136,10 @@ Public Class CustomTextBox
         End Get
         Set(value As String)
             _placeholder = value
+            If isInDesignMode Then
+                Me.Text = value
+                Me.ForeColor = _placeholderColor
+            End If
         End Set
     End Property
 
@@ -173,6 +192,12 @@ Public Class CustomTextBox
             End If
 
         End Set
+    End Property
+
+    Private ReadOnly Property isInDesignMode As Boolean
+        Get
+            Return Me.DesignMode OrElse LicenseManager.UsageMode = LicenseUsageMode.Designtime
+        End Get
     End Property
 
     Private Sub MyCustomTextBox_Load(sender As Object, e As EventArgs) Handles MyBase.Load

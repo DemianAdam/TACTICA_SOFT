@@ -156,8 +156,7 @@ Partial Class FormCliente
         Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtBuscar.Size = New System.Drawing.Size(248, 41)
         Me.txtBuscar.TabIndex = 24
-        Me.txtBuscar.Text = "0"
-        Me.txtBuscar.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtBuscar.Text = "Buscar"
         '
         'txtCorreo
         '
@@ -178,8 +177,7 @@ Partial Class FormCliente
         Me.txtCorreo.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtCorreo.Size = New System.Drawing.Size(400, 41)
         Me.txtCorreo.TabIndex = 23
-        Me.txtCorreo.Text = "0"
-        Me.txtCorreo.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtCorreo.Text = "Correo"
         '
         'txtTelefono
         '
@@ -200,8 +198,7 @@ Partial Class FormCliente
         Me.txtTelefono.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtTelefono.Size = New System.Drawing.Size(400, 41)
         Me.txtTelefono.TabIndex = 22
-        Me.txtTelefono.Text = "0"
-        Me.txtTelefono.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtTelefono.Text = "Telefono"
         '
         'txtCliente
         '
@@ -222,8 +219,7 @@ Partial Class FormCliente
         Me.txtCliente.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtCliente.Size = New System.Drawing.Size(400, 41)
         Me.txtCliente.TabIndex = 21
-        Me.txtCliente.Text = "0"
-        Me.txtCliente.Value = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtCliente.Text = "Cliente"
         '
         'FormCliente
         '

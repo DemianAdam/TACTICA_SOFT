@@ -22,7 +22,6 @@ Partial Class FormProducto
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProducto))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
         Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
@@ -49,7 +48,7 @@ Partial Class FormProducto
         Me.TableLayoutPanel1.Controls.Add(Me.btnAgregar, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnModificar, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnEliminar, 2, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 209)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 203)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -118,7 +117,7 @@ Partial Class FormProducto
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(13, 15)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(187, 47)
         Me.Label1.TabIndex = 26
@@ -134,9 +133,9 @@ Partial Class FormProducto
         Me.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProductos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProductos.Location = New System.Drawing.Point(11, 251)
+        Me.dgvProductos.Location = New System.Drawing.Point(10, 245)
         Me.dgvProductos.Name = "dgvProductos"
-        Me.dgvProductos.Size = New System.Drawing.Size(406, 206)
+        Me.dgvProductos.Size = New System.Drawing.Size(406, 215)
         Me.dgvProductos.TabIndex = 25
         '
         'txtBuscar
@@ -148,7 +147,7 @@ Partial Class FormProducto
         Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtBuscar.ForeColor = System.Drawing.Color.White
-        Me.txtBuscar.Location = New System.Drawing.Point(194, 21)
+        Me.txtBuscar.Location = New System.Drawing.Point(193, 15)
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
         Me.txtBuscar.Mask = ""
         Me.txtBuscar.Name = "txtBuscar"
@@ -159,7 +158,6 @@ Partial Class FormProducto
         Me.txtBuscar.Size = New System.Drawing.Size(84, 41)
         Me.txtBuscar.TabIndex = 31
         Me.txtBuscar.Text = "Buscar"
-        Me.txtBuscar.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'txtCategoria
         '
@@ -170,7 +168,7 @@ Partial Class FormProducto
         Me.txtCategoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtCategoria.ForeColor = System.Drawing.Color.White
-        Me.txtCategoria.Location = New System.Drawing.Point(14, 164)
+        Me.txtCategoria.Location = New System.Drawing.Point(13, 158)
         Me.txtCategoria.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCategoria.Mask = ""
         Me.txtCategoria.Name = "txtCategoria"
@@ -181,7 +179,6 @@ Partial Class FormProducto
         Me.txtCategoria.Size = New System.Drawing.Size(400, 41)
         Me.txtCategoria.TabIndex = 30
         Me.txtCategoria.Text = "Categoria"
-        Me.txtCategoria.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'txtPrecio
         '
@@ -192,7 +189,7 @@ Partial Class FormProducto
         Me.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPrecio.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtPrecio.ForeColor = System.Drawing.Color.White
-        Me.txtPrecio.Location = New System.Drawing.Point(14, 119)
+        Me.txtPrecio.Location = New System.Drawing.Point(13, 113)
         Me.txtPrecio.Margin = New System.Windows.Forms.Padding(0)
         Me.txtPrecio.Mask = ""
         Me.txtPrecio.Name = "txtPrecio"
@@ -213,7 +210,7 @@ Partial Class FormProducto
         Me.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtNombre.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtNombre.ForeColor = System.Drawing.Color.White
-        Me.txtNombre.Location = New System.Drawing.Point(14, 74)
+        Me.txtNombre.Location = New System.Drawing.Point(13, 68)
         Me.txtNombre.Margin = New System.Windows.Forms.Padding(0)
         Me.txtNombre.Mask = ""
         Me.txtNombre.Name = "txtNombre"
@@ -224,15 +221,14 @@ Partial Class FormProducto
         Me.txtNombre.Size = New System.Drawing.Size(400, 41)
         Me.txtNombre.TabIndex = 28
         Me.txtNombre.Text = "Nombre"
-        Me.txtNombre.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'cmbCategoria
         '
         Me.cmbCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbCategoria.DataSource = CType(resources.GetObject("cmbCategoria.DataSource"), System.Collections.Generic.List(Of String))
+        Me.cmbCategoria.DataSource = Nothing
         Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCategoria.ForeColor = System.Drawing.Color.White
-        Me.cmbCategoria.Location = New System.Drawing.Point(292, 22)
+        Me.cmbCategoria.Location = New System.Drawing.Point(291, 16)
         Me.cmbCategoria.Margin = New System.Windows.Forms.Padding(0)
         Me.cmbCategoria.Name = "cmbCategoria"
         Me.cmbCategoria.Placeholder = "Categoria"
