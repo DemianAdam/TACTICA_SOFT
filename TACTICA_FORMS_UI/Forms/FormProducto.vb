@@ -6,6 +6,7 @@ Public Class FormProducto
 
     Private ReadOnly _productoService As IProductoService
     Private ReadOnly _listaProductos As BindingList(Of ProductoDTO)
+    Private ReadOnly _listaCategorias As List(Of String)
     Private _selectedProducto As ProductoDTO
 
     Public Sub New(productoService As IProductoService)
@@ -14,7 +15,11 @@ Public Class FormProducto
         Me.SetStyle(ControlStyles.SupportsTransparentBackColor, True)
         Me.BackColor = Color.Transparent
         _listaProductos = New BindingList(Of ProductoDTO)(_productoService.GetAll().ToList())
+        _listaCategorias = New List(Of String)()
+        _listaCategorias.Add(cmbCategoria.Placeholder)
+        _listaCategorias.AddRange(_productoService.GetAllCategorias().ToList())
         dgvProductos.DataSource = _listaProductos
+        cmbCategoria.Datasource = _listaCategorias
     End Sub
 
     Public Function GetObjectFromInputs(Optional id As Integer = -1) As ProductoDTO Implements IGetInput(Of ProductoDTO).GetObjectFromInputs
@@ -75,7 +80,44 @@ Public Class FormProducto
         txtCategoria.Text = _selectedProducto.Categoria
     End Sub
 
-    Private Sub txtNombre_Load(sender As Object, e As EventArgs) Handles txtNombre.Load
+    Private Sub txtBuscar_TextChangedPublic(sender As Object, e As EventArgs) Handles txtBuscar.TextChangedPublic
+        Dim text As String = txtBuscar.Text
 
+        If _listaProductos Is Nothing Then
+            Return
+        End If
+        Dim filtered As List(Of ProductoDTO) = _listaProductos.ToList()
+        If String.IsNullOrEmpty(text) OrElse text = txtBuscar.Placeholder Then
+            dgvProductos.DataSource = _listaProductos
+        Else
+            filtered = filtered.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
+        End If
+        If cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
+            Dim categoria As String = cmbCategoria.SelectedItem.ToString()
+            filtered = filtered.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
+        End If
+
+        dgvProductos.DataSource = filtered
+
+
+    End Sub
+
+    Private Sub cmbCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategoria.SelectedIndexChanged
+        If _listaProductos Is Nothing Then
+            Return
+        End If
+        Dim text As String = txtBuscar.Text
+        Dim filtered As List(Of ProductoDTO) = _listaProductos.ToList()
+        If String.IsNullOrEmpty(text) OrElse text = txtBuscar.Placeholder Then
+            dgvProductos.DataSource = _listaProductos
+        Else
+            filtered = filtered.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
+        End If
+        If cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
+            Dim categoria As String = cmbCategoria.SelectedItem.ToString()
+            filtered = filtered.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
+        End If
+
+        dgvProductos.DataSource = filtered
     End Sub
 End Class

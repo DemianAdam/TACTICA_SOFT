@@ -53,7 +53,7 @@ Public Class ProductoRepository
     End Sub
 
     Public Function GetAllCategorias() As IEnumerable(Of String) Implements IProductoRespository.GetAllCategorias
-        Dim query As String = "SELECT DISTINCT Categoria FROM productos"
+        Dim query As String = "SELECT DISTINCT categoria from productos WHERE Categoria IS NOT NULL"
         Dim categorias As New List(Of String)()
         Using connection As Connection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()

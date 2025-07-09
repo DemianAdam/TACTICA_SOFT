@@ -6,16 +6,33 @@ Public Class PlaceholderComboBox
     Private _placeholderColor As Color
     Private _placeholder As String
     Private _baseForeColor As Color
+    Private _baseDatasource As Object
 
     Public Sub New()
         InitializeComponent()
         Me.Padding = New Padding(0)
-        Me.Margin = New Padding(0)
-        Me.ComboBox1.FlatStyle = FlatStyle.Flat
+        'Me.Margin = New Padding(0)
+        'Me.ComboBox1.FlatStyle = FlatStyle.System
         Me.ComboBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         Me.ComboBox1.Font = Me.Font
         Me.Height = ComboBox1.PreferredHeight + Me.Padding.Vertical
     End Sub
+    Public Property Datasource As List(Of String)
+        Get
+            Dim items As New List(Of String)
+            For Each item As Object In ComboBox1.Items
+                items.Add(item.ToString())
+            Next
+            Return items
+        End Get
+        Set(value As List(Of String))
+            For Each item As String In value
+                If Not ComboBox1.Items.Contains(item) Then
+                    ComboBox1.Items.Add(item)
+                End If
+            Next
+        End Set
+    End Property
     Protected Overrides Sub OnPaddingChanged(e As EventArgs)
         MyBase.OnPaddingChanged(e)
         Me.Size = New Size(Me.ComboBox1.Size.Width, Me.ComboBox1.PreferredHeight + Me.Padding.Vertical + 2)
@@ -78,7 +95,7 @@ Public Class PlaceholderComboBox
         MyBase.OnEnter(e)
         If IsDropDownList Then
             If Me.ComboBox1.SelectedItem.ToString() = Placeholder Then
-                Me.ComboBox1.Items.Remove(Placeholder)
+                'Me.ComboBox1.Items.Remove(Placeholder)
                 Me.ComboBox1.ForeColor = _baseForeColor
             End If
         Else
@@ -92,7 +109,7 @@ Public Class PlaceholderComboBox
 
     Protected Overrides Sub OnLeave(e As EventArgs)
         MyBase.OnLeave(e)
-        If IsDropDownList Then
+        If IsDropDownList AndAlso Me.ComboBox1.SelectedItem.ToString() = Placeholder Then
             If Not Me.ComboBox1.Items.Contains(Placeholder) Then
                 Me.ComboBox1.Items.Add(Placeholder)
             End If
@@ -144,7 +161,7 @@ Public Class PlaceholderComboBox
                 If Not Me.ComboBox1.Items.Contains(value) Then
                     Me.ComboBox1.Items.Add(value)
                 End If
-                Me.ComboBox1.SelectedItem = value
+                Me.ComboBox1.SelectedValue = value
             Else
                 Me.ComboBox1.Text = text
             End If
@@ -153,15 +170,22 @@ Public Class PlaceholderComboBox
         End Set
     End Property
 
+
     Private Sub ComboBox1_DropDownClosed(sender As Object, e As EventArgs) Handles ComboBox1.DropDownClosed
         If ComboBox1.SelectedItem Is Nothing Then
             Text = Placeholder
         End If
+        ComboBox1.FlatStyle = FlatStyle.Standard
+        ComboBox1.FlatStyle = FlatStyle.Popup
     End Sub
 
     Private Sub ComboBox1_DropDown(sender As Object, e As EventArgs) Handles ComboBox1.DropDown
-        If ComboBox1.Items.Contains(Placeholder) Then
-            ComboBox1.Items.Remove(Placeholder)
-        End If
+
+        ' Me.Parent.Focus()
+
+    End Sub
+    Public Event SelectedIndexChanged As EventHandler
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        RaiseEvent SelectedIndexChanged(sender, e)
     End Sub
 End Class

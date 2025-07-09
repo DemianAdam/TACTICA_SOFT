@@ -22,6 +22,7 @@ Partial Class FormProducto
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormProducto))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
@@ -84,6 +85,7 @@ Partial Class FormProducto
         'cmbCategoria
         '
         Me.cmbCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbCategoria.Datasource = CType(resources.GetObject("cmbCategoria.Datasource"), System.Collections.Generic.List(Of String))
         Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.cmbCategoria.ForeColor = System.Drawing.Color.White
         Me.cmbCategoria.Location = New System.Drawing.Point(292, 22)
