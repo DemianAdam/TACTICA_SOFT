@@ -93,7 +93,7 @@ Public Class FormProducto
         Else
             filtered = filtered.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
         End If
-        If cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
+        If cmbCategoria.SelectedItem IsNot Nothing AndAlso cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
             Dim categoria As String = cmbCategoria.SelectedItem.ToString()
             filtered = filtered.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
         End If
@@ -123,10 +123,12 @@ Public Class FormProducto
     End Sub
 
     Public Sub SetInputs(obj As ProductoDTO) Implements IDataForm(Of ProductoDTO).SetInputs
-        Throw New NotImplementedException()
+        txtNombre.Text = obj.Nombre
+        txtCategoria.Text = obj.Categoria
+        txtPrecio.Value = obj.Precio
     End Sub
 
     Public Sub ClearInputs() Implements IDataForm(Of ProductoDTO).ClearInputs
-        Throw New NotImplementedException()
+        SetInputs(New ProductoDTO())
     End Sub
 End Class

@@ -122,10 +122,22 @@
     <Compile Include="Forms\FormCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FormClienteVentas.Designer.vb">
+      <DependentUpon>FormClienteVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormClienteVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormProducto.Designer.vb">
       <DependentUpon>FormProducto.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormVentas.Designer.vb">
+      <DependentUpon>FormVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVentas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Helper\FormHelper.vb" />
@@ -167,8 +179,14 @@
     <EmbeddedResource Include="Forms\FormCliente.resx">
       <DependentUpon>FormCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormClienteVentas.resx">
+      <DependentUpon>FormClienteVentas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProducto.resx">
       <DependentUpon>FormProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVentas.resx">
+      <DependentUpon>FormVentas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.vb</DependentUpon>

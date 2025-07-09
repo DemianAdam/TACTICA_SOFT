@@ -25,7 +25,7 @@ Public Class CustomTextBox
     Public Property Value As Decimal?
         Get
             If Not NumericOnly Then
-                Throw New InvalidOperationException("El Textbox no es numerico")
+                Return 0
             End If
             Return Convert.ToDecimal(Me.Text)
         End Get

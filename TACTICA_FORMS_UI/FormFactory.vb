@@ -7,8 +7,8 @@ Public Class FormFactory
         _serviceProvider = serviceProvider
     End Sub
 
-    Public Function CreateForm(Of T As Form)(ParamArray parameters() As Object) As Form
-        Dim form As Form = _serviceProvider.GetService(Of T)()
+    Public Function CreateForm(Of T As Form)(ParamArray parameters() As Object) As T
+        Dim form As T = _serviceProvider.GetService(Of T)()
         If form Is Nothing Then
             Dim obj As Object = ActivatorUtilities.CreateInstance(_serviceProvider, GetType(T), parameters)
             form = DirectCast(obj, T)

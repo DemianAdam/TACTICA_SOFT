@@ -36,6 +36,7 @@ Partial Class Principal
         Me.btnMaximizar = New System.Windows.Forms.Button()
         Me.pbIcono = New System.Windows.Forms.PictureBox()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.btnVentas = New TACTICA_FORMS_UI.CustomButton()
         Me.panelMenu.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelContainer.SuspendLayout()
@@ -47,6 +48,7 @@ Partial Class Principal
         'panelMenu
         '
         Me.panelMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.panelMenu.Controls.Add(Me.btnVentas)
         Me.panelMenu.Controls.Add(Me.btnProductos)
         Me.panelMenu.Controls.Add(Me.btnClientes)
         Me.panelMenu.Controls.Add(Me.PictureBox1)
@@ -216,6 +218,20 @@ Partial Class Principal
         Me.btnCerrar.TabIndex = 6
         Me.btnCerrar.UseVisualStyleBackColor = True
         '
+        'btnVentas
+        '
+        Me.btnVentas.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVentas.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnVentas.ForeColor = System.Drawing.Color.White
+        Me.btnVentas.Location = New System.Drawing.Point(10, 175)
+        Me.btnVentas.Name = "btnVentas"
+        Me.btnVentas.Size = New System.Drawing.Size(161, 46)
+        Me.btnVentas.TabIndex = 4
+        Me.btnVentas.Text = "Ventas"
+        Me.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnVentas.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -226,6 +242,7 @@ Partial Class Principal
         Me.Controls.Add(Me.panelBottom)
         Me.Controls.Add(Me.panelMenu)
         Me.Controls.Add(Me.panelTop)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(613, 550)
@@ -255,4 +272,5 @@ Partial Class Principal
     Friend WithEvents btnClientes As CustomButton
     Friend WithEvents Label1 As Label
     Friend WithEvents btnProductos As CustomButton
+    Friend WithEvents btnVentas As CustomButton
 End Class

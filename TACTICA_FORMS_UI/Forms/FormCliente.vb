@@ -8,18 +8,31 @@ Imports TACTICA_DATA_ACCESS
 Public Class FormCliente
     Implements IDataForm(Of ClienteDTO)
     Private ReadOnly _clienteService As IClienteService
+    Private ReadOnly formFactory As FormFactory
     Private ReadOnly _listaClientes As BindingList(Of ClienteDTO)
     Private _selectedCliente As ClienteDTO
-    Public Sub New(clienteService As IClienteService)
+    Private _ventasColumnIndex As Integer
+    Public Sub New(clienteService As IClienteService, formFactory As FormFactory)
         InitializeComponent()
         Me.SetStyle(ControlStyles.SupportsTransparentBackColor, True)
         Me.BackColor = Color.Transparent
         Me._clienteService = clienteService
+        Me.formFactory = formFactory
         _listaClientes = New BindingList(Of ClienteDTO)(clienteService.GetAll().ToList())
         dgvClientes.DataSource = _listaClientes
     End Sub
 
+    Private Function CreateButtonColumn() As Integer
+        Dim ventasColumn As New DataGridViewButtonColumn()
+        ventasColumn.HeaderText = "Ventas"
+        ventasColumn.Name = "VentasColumn"
+        ventasColumn.Text = "Ventas"
+        ventasColumn.UseColumnTextForButtonValue = True
+        Return dgvClientes.Columns.Add(ventasColumn)
+    End Function
+
     Private Sub FormCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        _ventasColumnIndex = CreateButtonColumn()
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
@@ -99,12 +112,22 @@ Public Class FormCliente
     End Sub
 
     Public Sub SetInputs(obj As ClienteDTO) Implements IDataForm(Of ClienteDTO).SetInputs
-        txtCliente.Text = obj.Cliente
-        txtCorreo.Text = obj.Correo
-        txtTelefono.Text = obj.Telefono
+        If obj IsNot Nothing Then
+            txtCliente.Text = obj.Cliente
+            txtCorreo.Text = obj.Correo
+            txtTelefono.Text = obj.Telefono
+        End If
     End Sub
 
     Public Sub ClearInputs() Implements IDataForm(Of ClienteDTO).ClearInputs
         SetInputs(New ClienteDTO())
+    End Sub
+
+    Private Sub dgvClientes_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClientes.CellContentClick
+        If e.ColumnIndex = _ventasColumnIndex AndAlso TypeOf dgvClientes.Columns(e.ColumnIndex) Is DataGridViewColumn AndAlso e.RowIndex >= 0 Then
+            Dim cliente As Object = FormHelper.GetSelected(Of ClienteDTO)(dgvClientes)
+            Dim form As FormClienteVentas = formFactory.CreateForm(Of FormClienteVentas)(cliente)
+            form.ShowDialog()
+        End If
     End Sub
 End Class

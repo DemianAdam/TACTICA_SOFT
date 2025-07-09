@@ -46,9 +46,9 @@ Partial Class FormCliente
         Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Location = New System.Drawing.Point(10, 254)
+        Me.dgvClientes.Location = New System.Drawing.Point(10, 245)
         Me.dgvClientes.Name = "dgvClientes"
-        Me.dgvClientes.Size = New System.Drawing.Size(406, 206)
+        Me.dgvClientes.Size = New System.Drawing.Size(406, 215)
         Me.dgvClientes.TabIndex = 7
         '
         'Label1
@@ -56,7 +56,7 @@ Partial Class FormCliente
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(12, 18)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(150, 47)
         Me.Label1.TabIndex = 11
@@ -73,7 +73,7 @@ Partial Class FormCliente
         Me.TableLayoutPanel1.Controls.Add(Me.btnAgregar, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnModificar, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnEliminar, 2, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 212)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 203)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -146,7 +146,7 @@ Partial Class FormCliente
         Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtBuscar.ForeColor = System.Drawing.Color.White
-        Me.txtBuscar.Location = New System.Drawing.Point(165, 24)
+        Me.txtBuscar.Location = New System.Drawing.Point(165, 15)
         Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
         Me.txtBuscar.Mask = ""
         Me.txtBuscar.Name = "txtBuscar"
@@ -156,7 +156,8 @@ Partial Class FormCliente
         Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtBuscar.Size = New System.Drawing.Size(248, 41)
         Me.txtBuscar.TabIndex = 24
-        Me.txtBuscar.Text = "Buscar"
+        Me.txtBuscar.Text = "0"
+        Me.txtBuscar.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'txtCorreo
         '
@@ -167,7 +168,7 @@ Partial Class FormCliente
         Me.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCorreo.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtCorreo.ForeColor = System.Drawing.Color.White
-        Me.txtCorreo.Location = New System.Drawing.Point(13, 167)
+        Me.txtCorreo.Location = New System.Drawing.Point(13, 158)
         Me.txtCorreo.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCorreo.Mask = ""
         Me.txtCorreo.Name = "txtCorreo"
@@ -177,7 +178,8 @@ Partial Class FormCliente
         Me.txtCorreo.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtCorreo.Size = New System.Drawing.Size(400, 41)
         Me.txtCorreo.TabIndex = 23
-        Me.txtCorreo.Text = "Correo"
+        Me.txtCorreo.Text = "0"
+        Me.txtCorreo.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'txtTelefono
         '
@@ -188,7 +190,7 @@ Partial Class FormCliente
         Me.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtTelefono.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtTelefono.ForeColor = System.Drawing.Color.White
-        Me.txtTelefono.Location = New System.Drawing.Point(13, 122)
+        Me.txtTelefono.Location = New System.Drawing.Point(13, 113)
         Me.txtTelefono.Margin = New System.Windows.Forms.Padding(0)
         Me.txtTelefono.Mask = "(+99) 00-0000-0000"
         Me.txtTelefono.Name = "txtTelefono"
@@ -198,7 +200,8 @@ Partial Class FormCliente
         Me.txtTelefono.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtTelefono.Size = New System.Drawing.Size(400, 41)
         Me.txtTelefono.TabIndex = 22
-        Me.txtTelefono.Text = "Telefono"
+        Me.txtTelefono.Text = "0"
+        Me.txtTelefono.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'txtCliente
         '
@@ -209,7 +212,7 @@ Partial Class FormCliente
         Me.txtCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtCliente.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
         Me.txtCliente.ForeColor = System.Drawing.Color.White
-        Me.txtCliente.Location = New System.Drawing.Point(13, 77)
+        Me.txtCliente.Location = New System.Drawing.Point(13, 68)
         Me.txtCliente.Margin = New System.Windows.Forms.Padding(0)
         Me.txtCliente.Mask = ""
         Me.txtCliente.Name = "txtCliente"
@@ -219,7 +222,8 @@ Partial Class FormCliente
         Me.txtCliente.PlaceholderColor = System.Drawing.Color.Gray
         Me.txtCliente.Size = New System.Drawing.Size(400, 41)
         Me.txtCliente.TabIndex = 21
-        Me.txtCliente.Text = "Cliente"
+        Me.txtCliente.Text = "0"
+        Me.txtCliente.Value = New Decimal(New Integer() {0, 0, 0, 0})
         '
         'FormCliente
         '

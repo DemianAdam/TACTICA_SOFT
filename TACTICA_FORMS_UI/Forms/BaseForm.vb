@@ -7,15 +7,9 @@ Public Class BaseForm
     Protected Const HTCAPTION As Integer = 2
     Protected Const WM_SYSCOMMAND As Integer = &H112
     Protected Const SC_MINIMIZE As Integer = &HF020
-    Private ReadOnly formFactory As FormFactory
-    Private displayedForm As Form
+
     Public Sub New()
         InitializeComponent()
-    End Sub
-    Public Sub New(formFactory As FormFactory)
-        InitializeComponent()
-        Me.formFactory = formFactory
-
     End Sub
     Protected Overrides Sub WndProc(ByRef m As Message)
         If m.Msg = &H84 Then ' WM_NCHITTEST
@@ -76,21 +70,7 @@ Public Class BaseForm
     Protected Shared Function ReleaseCapture() As Boolean
     End Function
 
-    Protected Sub OpenForm(Of T As Form)(panel As Panel)
-        If TypeOf displayedForm IsNot T Then
-            displayedForm?.Close()
-            Dim form As Form = formFactory.CreateForm(Of T)()
-            displayedForm = form
-            form.TopLevel = False
-            form.FormBorderStyle = FormBorderStyle.None
-            form.BackgroundImage = ChangeOpacity(My.Resources.tacticalsoft_logo_, 0.01)
-            form.BackgroundImageLayout = ImageLayout.Zoom
-            form.Dock = DockStyle.Fill
-            panel.Controls.Add(form)
-            form.BringToFront()
-            form.Show()
-        End If
-    End Sub
+
 
     Public Shared Function ChangeOpacity(ByVal img As Image, ByVal opacityvalue As Single) As Bitmap
         Dim bmp As New Bitmap(img.Width, img.Height)

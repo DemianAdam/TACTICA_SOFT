@@ -4,10 +4,12 @@ Public Class Principal
     Inherits BaseForm
 
     Private lastClickedButton As Button
+    Private displayedForm As Form
+    Private ReadOnly _formFactory As FormFactory
     Public Sub New(formFactory As FormFactory)
-        MyBase.New(formFactory)
         InitializeComponent()
         Me.FormBorderStyle = FormBorderStyle.None
+        _formFactory = formFactory
     End Sub
 
     Private Sub panelTop_MouseDown(sender As Object, e As MouseEventArgs) Handles panelTop.MouseDown
@@ -38,7 +40,11 @@ Public Class Principal
     Private Sub btnProductos_Click(sender As Object, e As EventArgs) Handles btnProductos.Click
         OpenForm(Of FormProducto)(panelContainer)
     End Sub
-    Private Sub BaseClick(sender As Object, e As EventArgs) Handles btnClientes.Click, btnProductos.Click
+
+    Private Sub btnVentas_Click(sender As Object, e As EventArgs) Handles btnVentas.Click
+        OpenForm(Of FormVentas)(panelContainer)
+    End Sub
+    Private Sub BaseClick(sender As Object, e As EventArgs) Handles btnClientes.Click, btnProductos.Click, btnVentas.MouseClick
         Dim button As Button = DirectCast(sender, Button)
         If lastClickedButton IsNot Nothing AndAlso button IsNot lastClickedButton Then
             lastClickedButton.FlatAppearance.BorderSize = 0
@@ -46,15 +52,31 @@ Public Class Principal
         lastClickedButton = button
     End Sub
 
-    Private Sub Btn_MouseEnter(sender As Object, e As EventArgs) Handles btnClientes.MouseEnter, btnProductos.MouseEnter
+    Private Sub Btn_MouseEnter(sender As Object, e As EventArgs) Handles btnClientes.MouseEnter, btnProductos.MouseEnter, btnVentas.MouseEnter
         Dim button As Button = DirectCast(sender, Button)
         button.FlatAppearance.BorderSize = 1
     End Sub
 
-    Private Sub Btn_MouseLeave(sender As Object, e As EventArgs) Handles btnClientes.MouseLeave, btnProductos.MouseLeave
+    Private Sub Btn_MouseLeave(sender As Object, e As EventArgs) Handles btnClientes.MouseLeave, btnProductos.MouseLeave, btnVentas.MouseLeave
         Dim button As Button = DirectCast(sender, Button)
         If lastClickedButton IsNot button Then
             button.FlatAppearance.BorderSize = 0
+        End If
+    End Sub
+
+    Protected Sub OpenForm(Of T As Form)(panel As Panel)
+        If TypeOf displayedForm IsNot T Then
+            displayedForm?.Close()
+            Dim form As Form = _formFactory.CreateForm(Of T)()
+            displayedForm = form
+            form.TopLevel = False
+            form.FormBorderStyle = FormBorderStyle.None
+            form.BackgroundImage = ChangeOpacity(My.Resources.tacticalsoft_logo_, 0.01)
+            form.BackgroundImageLayout = ImageLayout.Zoom
+            form.Dock = DockStyle.Fill
+            panel.Controls.Add(form)
+            form.BringToFront()
+            form.Show()
         End If
     End Sub
 
