@@ -23,19 +23,20 @@ Partial Class FormVentas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
+        Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
+        Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.dgvVentas = New System.Windows.Forms.DataGridView()
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.dtpHora = New System.Windows.Forms.DateTimePicker()
         Me.cmbCliente = New TACTICA_FORMS_UI.PlaceholderComboBox()
         Me.txtBuscar = New TACTICA_FORMS_UI.CustomTextBox()
-        Me.txtPrecio = New TACTICA_FORMS_UI.CustomTextBox()
-        Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
-        Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
-        Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
         Me.txtCorreo = New TACTICA_FORMS_UI.CustomTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblPrecio = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -55,111 +56,6 @@ Partial Class FormVentas
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(406, 36)
         Me.TableLayoutPanel1.TabIndex = 27
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
-        Me.Label1.Location = New System.Drawing.Point(13, 11)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(129, 47)
-        Me.Label1.TabIndex = 26
-        Me.Label1.Text = "Ventas"
-        '
-        'dgvClientes
-        '
-        Me.dgvClientes.AllowUserToAddRows = False
-        Me.dgvClientes.AllowUserToDeleteRows = False
-        Me.dgvClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvClientes.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Location = New System.Drawing.Point(11, 247)
-        Me.dgvClientes.Name = "dgvClientes"
-        Me.dgvClientes.Size = New System.Drawing.Size(406, 215)
-        Me.dgvClientes.TabIndex = 25
-        '
-        'dtpFecha
-        '
-        Me.dtpFecha.CustomFormat = "dddd dd 'del' MM 'del' yyyy"
-        Me.dtpFecha.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpFecha.Location = New System.Drawing.Point(14, 119)
-        Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(317, 35)
-        Me.dtpFecha.TabIndex = 34
-        '
-        'dtpHora
-        '
-        Me.dtpHora.CustomFormat = "HH:mm"
-        Me.dtpHora.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpHora.Location = New System.Drawing.Point(337, 119)
-        Me.dtpHora.Name = "dtpHora"
-        Me.dtpHora.ShowUpDown = True
-        Me.dtpHora.Size = New System.Drawing.Size(77, 35)
-        Me.dtpHora.TabIndex = 35
-        '
-        'cmbCliente
-        '
-        Me.cmbCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbCliente.DataSource = Nothing
-        Me.cmbCliente.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.cmbCliente.ForeColor = System.Drawing.Color.White
-        Me.cmbCliente.Location = New System.Drawing.Point(14, 72)
-        Me.cmbCliente.Margin = New System.Windows.Forms.Padding(6, 7, 6, 7)
-        Me.cmbCliente.Name = "cmbCliente"
-        Me.cmbCliente.Placeholder = "Cliente"
-        Me.cmbCliente.PlaceholderColor = System.Drawing.Color.Gray
-        Me.cmbCliente.SelectedItem = "Cliente"
-        Me.cmbCliente.Size = New System.Drawing.Size(400, 40)
-        Me.cmbCliente.TabIndex = 33
-        Me.cmbCliente.Text = "Cliente"
-        '
-        'txtBuscar
-        '
-        Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBuscar.AutoSize = True
-        Me.txtBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.txtBuscar.ForeColor = System.Drawing.Color.White
-        Me.txtBuscar.Location = New System.Drawing.Point(166, 17)
-        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
-        Me.txtBuscar.Mask = ""
-        Me.txtBuscar.Name = "txtBuscar"
-        Me.txtBuscar.NumericOnly = False
-        Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
-        Me.txtBuscar.Placeholder = "Buscar"
-        Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
-        Me.txtBuscar.Size = New System.Drawing.Size(248, 41)
-        Me.txtBuscar.TabIndex = 31
-        Me.txtBuscar.Text = "Buscar"
-        '
-        'txtPrecio
-        '
-        Me.txtPrecio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPrecio.AutoSize = True
-        Me.txtPrecio.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPrecio.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.txtPrecio.ForeColor = System.Drawing.Color.White
-        Me.txtPrecio.Location = New System.Drawing.Point(14, 160)
-        Me.txtPrecio.Margin = New System.Windows.Forms.Padding(0)
-        Me.txtPrecio.Mask = ""
-        Me.txtPrecio.Name = "txtPrecio"
-        Me.txtPrecio.NumericOnly = True
-        Me.txtPrecio.Padding = New System.Windows.Forms.Padding(5)
-        Me.txtPrecio.Placeholder = "Precio"
-        Me.txtPrecio.PlaceholderColor = System.Drawing.Color.Gray
-        Me.txtPrecio.Size = New System.Drawing.Size(400, 41)
-        Me.txtPrecio.TabIndex = 30
-        Me.txtPrecio.Text = "Precio"
         '
         'btnAgregar
         '
@@ -218,6 +114,89 @@ Partial Class FormVentas
         Me.btnEliminar.Text = "Eliminar"
         Me.btnEliminar.UseVisualStyleBackColor = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(13, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(129, 47)
+        Me.Label1.TabIndex = 26
+        Me.Label1.Text = "Ventas"
+        '
+        'dgvVentas
+        '
+        Me.dgvVentas.AllowUserToAddRows = False
+        Me.dgvVentas.AllowUserToDeleteRows = False
+        Me.dgvVentas.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvVentas.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.dgvVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVentas.Location = New System.Drawing.Point(11, 247)
+        Me.dgvVentas.Name = "dgvVentas"
+        Me.dgvVentas.Size = New System.Drawing.Size(406, 215)
+        Me.dgvVentas.TabIndex = 25
+        '
+        'dtpFecha
+        '
+        Me.dtpFecha.CustomFormat = "dddd dd 'del' MM 'del' yyyy"
+        Me.dtpFecha.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFecha.Location = New System.Drawing.Point(14, 119)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(317, 35)
+        Me.dtpFecha.TabIndex = 34
+        '
+        'dtpHora
+        '
+        Me.dtpHora.CustomFormat = "HH:mm"
+        Me.dtpHora.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpHora.Location = New System.Drawing.Point(337, 119)
+        Me.dtpHora.Name = "dtpHora"
+        Me.dtpHora.ShowUpDown = True
+        Me.dtpHora.Size = New System.Drawing.Size(77, 35)
+        Me.dtpHora.TabIndex = 35
+        '
+        'cmbCliente
+        '
+        Me.cmbCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbCliente.DataSource = Nothing
+        Me.cmbCliente.DisplayMember = ""
+        Me.cmbCliente.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.cmbCliente.Location = New System.Drawing.Point(14, 72)
+        Me.cmbCliente.Margin = New System.Windows.Forms.Padding(6, 7, 6, 7)
+        Me.cmbCliente.Name = "cmbCliente"
+        Me.cmbCliente.Placeholder = "Cliente"
+        Me.cmbCliente.PlaceholderColor = System.Drawing.Color.Gray
+        Me.cmbCliente.SelectedItem = "Cliente"
+        Me.cmbCliente.Size = New System.Drawing.Size(400, 40)
+        Me.cmbCliente.TabIndex = 33
+        Me.cmbCliente.Text = "Cliente"
+        '
+        'txtBuscar
+        '
+        Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscar.AutoSize = True
+        Me.txtBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtBuscar.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.txtBuscar.Location = New System.Drawing.Point(166, 17)
+        Me.txtBuscar.Margin = New System.Windows.Forms.Padding(0)
+        Me.txtBuscar.Mask = ""
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.NumericOnly = False
+        Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
+        Me.txtBuscar.Placeholder = "Buscar"
+        Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
+        Me.txtBuscar.Size = New System.Drawing.Size(248, 41)
+        Me.txtBuscar.TabIndex = 31
+        Me.txtBuscar.Text = "Buscar"
+        '
         'txtCorreo
         '
         Me.txtCorreo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -238,42 +217,68 @@ Partial Class FormVentas
         Me.txtCorreo.TabIndex = 30
         Me.txtCorreo.Text = "Precio"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(16, 169)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(3)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(80, 30)
+        Me.Label2.TabIndex = 36
+        Me.Label2.Text = "Precio:"
+        '
+        'lblPrecio
+        '
+        Me.lblPrecio.AutoSize = True
+        Me.lblPrecio.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.lblPrecio.ForeColor = System.Drawing.Color.White
+        Me.lblPrecio.Location = New System.Drawing.Point(102, 169)
+        Me.lblPrecio.Margin = New System.Windows.Forms.Padding(3)
+        Me.lblPrecio.Name = "lblPrecio"
+        Me.lblPrecio.Size = New System.Drawing.Size(68, 30)
+        Me.lblPrecio.TabIndex = 37
+        Me.lblPrecio.Text = "xxxxx"
+        '
         'FormVentas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(428, 472)
+        Me.Controls.Add(Me.lblPrecio)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtpHora)
         Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.cmbCliente)
         Me.Controls.Add(Me.txtBuscar)
-        Me.Controls.Add(Me.txtPrecio)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgvClientes)
+        Me.Controls.Add(Me.dgvVentas)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FormVentas"
         Me.Text = "FormVentas"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents txtBuscar As CustomTextBox
-    Friend WithEvents txtPrecio As CustomTextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents btnAgregar As CustomButton
     Friend WithEvents btnModificar As CustomButton
     Friend WithEvents btnEliminar As CustomButton
     Friend WithEvents Label1 As Label
-    Friend WithEvents dgvClientes As DataGridView
+    Friend WithEvents dgvVentas As DataGridView
     Friend WithEvents cmbCliente As PlaceholderComboBox
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents dtpHora As DateTimePicker
     Friend WithEvents txtCorreo As CustomTextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblPrecio As Label
 End Class

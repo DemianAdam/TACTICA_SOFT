@@ -90,6 +90,7 @@
     <Compile Include="Enums\ActionType.vb" />
     <Compile Include="Exceptions\InvalidClienteException.vb" />
     <Compile Include="Exceptions\InvalidProductoException.vb" />
+    <Compile Include="Exceptions\InvalidVentaException.vb" />
     <Compile Include="Interfaces\Event\IEvent.vb" />
     <Compile Include="Interfaces\Event\ITEvent.vb" />
     <Compile Include="Interfaces\IBaseService.vb" />
@@ -97,8 +98,12 @@
     <Compile Include="Interfaces\Event\IEventBus.vb" />
     <Compile Include="Interfaces\IValidator.vb" />
     <Compile Include="Interfaces\Producto\IProductoService.vb" />
+    <Compile Include="Interfaces\Venta\IItemService.vb" />
+    <Compile Include="Interfaces\Venta\IVentaService.vb" />
     <Compile Include="Mappers\ClienteMapper.vb" />
+    <Compile Include="Mappers\ItemMapper.vb" />
     <Compile Include="Mappers\ProductoMapper.vb" />
+    <Compile Include="Mappers\VentaMapper.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -120,6 +125,9 @@
     <Compile Include="Services\Event\EventBus.vb" />
     <Compile Include="Services\Producto\ProductoDTOValidator.vb" />
     <Compile Include="Services\Producto\ProductoService.vb" />
+    <Compile Include="Services\Venta\VentaDTOValidator.vb" />
+    <Compile Include="Services\Venta\VentaItemService.vb" />
+    <Compile Include="Services\Venta\VentaService.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

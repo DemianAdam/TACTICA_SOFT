@@ -10,5 +10,8 @@ Public Module DependencyInyection
         services.AddTransient(Of Connection)()
         services.AddTransient(Of IClienteRepository, ClienteRepository)()
         services.AddTransient(Of IProductoRespository, ProductoRepository)()
+        services.AddTransient(Of IVentaUnitOfWork, VentaUnitOfWork)
+        services.AddTransient(Of IVentaRepository, VentaRespository)
+        services.AddTransient(Of IItemRepository, ItemRepository)
     End Sub
 End Module

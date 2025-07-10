@@ -85,7 +85,10 @@
     <Compile Include="DependencyInyection.vb" />
     <Compile Include="Interfaces\IBaseRepository.vb" />
     <Compile Include="Interfaces\IClienteRepository.vb" />
+    <Compile Include="Interfaces\IItemRepository.vb" />
     <Compile Include="Interfaces\IProductoRespository.vb" />
+    <Compile Include="Interfaces\IVentaRepository.vb" />
+    <Compile Include="Interfaces\IVentaUnitOfWork.vb" />
     <Compile Include="Models\Cliente.vb" />
     <Compile Include="Models\Item.vb" />
     <Compile Include="Models\Producto.vb" />
@@ -106,7 +109,10 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Repositories\ClienteRepository.vb" />
+    <Compile Include="Repositories\ItemRepository.vb" />
     <Compile Include="Repositories\ProductoRepository.vb" />
+    <Compile Include="Repositories\VentaRespository.vb" />
+    <Compile Include="Repositories\VentaUnitOfWork.vb" />
     <Compile Include="RepositoryHelper.vb" />
   </ItemGroup>
   <ItemGroup>

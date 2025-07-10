@@ -37,6 +37,11 @@ Public Class FormCliente
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim cliente As ClienteDTO = GetObjectFromInputs()
+
+        If Not Me.IsValid(cliente) Then
+            Return
+        End If
+
         Try
             _clienteService.Add(cliente)
             _listaClientes.Add(cliente)
@@ -50,6 +55,9 @@ Public Class FormCliente
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim cliente As ClienteDTO = FormHelper.GetSelected(Of ClienteDTO)(dgvClientes)
         Dim updatedCliente As ClienteDTO = GetObjectFromInputs(cliente.Id)
+        If Not Me.IsValid(updatedCliente) Then
+            Return
+        End If
         Try
             _clienteService.Update(updatedCliente)
             cliente.Cliente = updatedCliente.Cliente
@@ -130,4 +138,17 @@ Public Class FormCliente
             form.ShowDialog()
         End If
     End Sub
+
+    Public Function IsValid(obj As ClienteDTO) As Boolean Implements IDataForm(Of ClienteDTO).IsValid
+        Dim buttons As MessageBoxButtons = MessageBoxButtons.OK
+        Dim icon As MessageBoxIcon = MessageBoxIcon.Error
+        Dim titulo As String = "Cliente Invalido"
+
+        If String.IsNullOrEmpty(obj.Cliente) Then
+            MessageBox.Show("El campo Cliente es Obligatorio", titulo, buttons, icon)
+            Return False
+        End If
+
+        Return True
+    End Function
 End Class

@@ -12,7 +12,7 @@ Friend Class ClienteRepository
 
     Public Function Add(entity As Cliente) As Integer Implements IBaseRepository(Of Cliente).Add
         Dim query As String = "INSERT INTO clientes VALUES (@Cliente, @Telefono, @Correo);SELECT Id = SCOPE_IDENTITY()"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Dim telefono As Object = RepositoryHelper.FormatNullableValue(entity.Telefono)
@@ -28,7 +28,7 @@ Friend Class ClienteRepository
 
     Public Sub Update(entity As Cliente) Implements IBaseRepository(Of Cliente).Update
         Dim query As String = "UPDATE clientes SET Cliente = @Cliente, Telefono = @Telefono, Correo = @Correo WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Dim telefono As Object = RepositoryHelper.FormatNullableValue(entity.Telefono)
@@ -44,7 +44,7 @@ Friend Class ClienteRepository
 
     Public Sub Delete(entity As Cliente) Implements IBaseRepository(Of Cliente).Delete
         Dim query As String = "DELETE FROM clientes WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 command.Parameters.Add(New SqlParameter("@Id", entity.ID))
@@ -56,7 +56,7 @@ Friend Class ClienteRepository
     Public Function GetAll() As IEnumerable(Of Cliente) Implements IBaseRepository(Of Cliente).GetAll
         Dim query As String = "SELECT * FROM clientes"
         Dim clientes As New List(Of Cliente)()
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Using reader As IDataReader = command.ExecuteReader()
@@ -77,7 +77,7 @@ Friend Class ClienteRepository
 
     Public Function GetById(id As Integer) As Cliente Implements IBaseRepository(Of Cliente).GetById
         Dim query As String = "SELECT * FROM clientes WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 command.Parameters.Add(New SqlParameter("@Id", id))

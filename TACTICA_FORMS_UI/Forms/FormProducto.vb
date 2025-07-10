@@ -19,7 +19,7 @@ Public Class FormProducto
         _listaCategorias.Add(cmbCategoria.Placeholder)
         _listaCategorias.AddRange(_productoService.GetAllCategorias().ToList())
         dgvProductos.DataSource = _listaProductos
-        cmbCategoria.Datasource = _listaCategorias
+        cmbCategoria.DataSource = _listaCategorias
     End Sub
 
     Public Function GetObjectFromInputs(Optional id As Integer = -1) As ProductoDTO Implements IDataForm(Of ProductoDTO).GetObjectFromInputs
@@ -41,6 +41,9 @@ Public Class FormProducto
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim producto As ProductoDTO = GetObjectFromInputs()
+        If Not Me.IsValid(producto) Then
+            Return
+        End If
         Try
             _productoService.Add(producto)
             _listaProductos.Add(producto)
@@ -53,6 +56,11 @@ Public Class FormProducto
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Dim producto As ProductoDTO = FormHelper.GetSelected(Of ProductoDTO)(dgvProductos)
         Dim updatedProducto As ProductoDTO = GetObjectFromInputs(producto.Id)
+
+        If Not Me.IsValid(updatedProducto) Then
+            Return
+        End If
+
         Try
             _productoService.Update(updatedProducto)
             producto.Nombre = updatedProducto.Nombre
@@ -87,48 +95,60 @@ Public Class FormProducto
         If _listaProductos Is Nothing Then
             Return
         End If
-        Dim filtered As List(Of ProductoDTO) = _listaProductos.ToList()
+
         If String.IsNullOrEmpty(text) OrElse text = txtBuscar.Placeholder Then
             dgvProductos.DataSource = _listaProductos
         Else
-            filtered = filtered.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
+            dgvProductos.DataSource = _listaProductos.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
         End If
         If cmbCategoria.SelectedItem IsNot Nothing AndAlso cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
             Dim categoria As String = cmbCategoria.SelectedItem.ToString()
-            filtered = filtered.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
+            dgvProductos.DataSource = _listaProductos.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
         End If
 
-        dgvProductos.DataSource = filtered
+
 
 
     End Sub
 
     Private Sub cmbCategoria_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategoria.SelectedIndexChanged
+        Dim text As String = txtBuscar.Text
+
         If _listaProductos Is Nothing Then
             Return
         End If
-        Dim text As String = txtBuscar.Text
-        Dim filtered As List(Of ProductoDTO) = _listaProductos.ToList()
+
         If String.IsNullOrEmpty(text) OrElse text = txtBuscar.Placeholder Then
             dgvProductos.DataSource = _listaProductos
         Else
-            filtered = filtered.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
+            dgvProductos.DataSource = _listaProductos.Where(Function(x) x.Nombre Like $"*{text}*" OrElse x.Precio.ToString() Like $"*{text}*" OrElse x.Categoria Like $"*{text}*").ToList()
         End If
-        If cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
+        If cmbCategoria.SelectedItem IsNot Nothing AndAlso cmbCategoria.SelectedItem.ToString() <> cmbCategoria.Placeholder Then
             Dim categoria As String = cmbCategoria.SelectedItem.ToString()
-            filtered = filtered.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
+            dgvProductos.DataSource = _listaProductos.Where(Function(x) x.Categoria Like $"*{categoria}*").ToList()
         End If
-
-        dgvProductos.DataSource = filtered
     End Sub
 
     Public Sub SetInputs(obj As ProductoDTO) Implements IDataForm(Of ProductoDTO).SetInputs
         txtNombre.Text = obj.Nombre
         txtCategoria.Text = obj.Categoria
-        txtPrecio.Value = If(obj.Precio, 0)
+        txtPrecio.Text = obj.Precio.ToString()
     End Sub
 
     Public Sub ClearInputs() Implements IDataForm(Of ProductoDTO).ClearInputs
         SetInputs(New ProductoDTO())
     End Sub
+
+    Public Function IsValid(obj As ProductoDTO) As Boolean Implements IDataForm(Of ProductoDTO).IsValid
+        Dim buttons As MessageBoxButtons = MessageBoxButtons.OK
+        Dim icon As MessageBoxIcon = MessageBoxIcon.Error
+        Dim titulo As String = "Producto Invalido"
+
+        If String.IsNullOrEmpty(obj.Nombre) Then
+            MessageBox.Show("El campo Nombre es Obligatorio", titulo, buttons, icon)
+            Return False
+        End If
+
+        Return True
+    End Function
 End Class

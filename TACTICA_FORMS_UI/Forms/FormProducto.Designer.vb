@@ -23,16 +23,16 @@ Partial Class FormProducto
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
-        Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
-        Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
+        Me.cmbCategoria = New TACTICA_FORMS_UI.PlaceholderComboBox()
         Me.txtBuscar = New TACTICA_FORMS_UI.CustomTextBox()
         Me.txtCategoria = New TACTICA_FORMS_UI.CustomTextBox()
         Me.txtPrecio = New TACTICA_FORMS_UI.CustomTextBox()
         Me.txtNombre = New TACTICA_FORMS_UI.CustomTextBox()
-        Me.cmbCategoria = New TACTICA_FORMS_UI.PlaceholderComboBox()
+        Me.btnAgregar = New TACTICA_FORMS_UI.CustomButton()
+        Me.btnModificar = New TACTICA_FORMS_UI.CustomButton()
+        Me.btnEliminar = New TACTICA_FORMS_UI.CustomButton()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -54,63 +54,6 @@ Partial Class FormProducto
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(406, 36)
         Me.TableLayoutPanel1.TabIndex = 27
-        '
-        'btnAgregar
-        '
-        Me.btnAgregar.AutoSize = True
-        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnAgregar.FlatAppearance.BorderSize = 0
-        Me.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
-        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnAgregar.ForeColor = System.Drawing.Color.White
-        Me.btnAgregar.Location = New System.Drawing.Point(3, 3)
-        Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(129, 30)
-        Me.btnAgregar.TabIndex = 8
-        Me.btnAgregar.Text = "Agregar"
-        Me.btnAgregar.UseVisualStyleBackColor = False
-        '
-        'btnModificar
-        '
-        Me.btnModificar.AutoSize = True
-        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnModificar.FlatAppearance.BorderSize = 0
-        Me.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
-        Me.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnModificar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnModificar.ForeColor = System.Drawing.Color.White
-        Me.btnModificar.Location = New System.Drawing.Point(138, 3)
-        Me.btnModificar.Name = "btnModificar"
-        Me.btnModificar.Size = New System.Drawing.Size(129, 30)
-        Me.btnModificar.TabIndex = 9
-        Me.btnModificar.Text = "Modificar"
-        Me.btnModificar.UseVisualStyleBackColor = False
-        '
-        'btnEliminar
-        '
-        Me.btnEliminar.AutoSize = True
-        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
-        Me.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
-        Me.btnEliminar.FlatAppearance.BorderSize = 0
-        Me.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
-        Me.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.btnEliminar.ForeColor = System.Drawing.Color.White
-        Me.btnEliminar.Location = New System.Drawing.Point(273, 3)
-        Me.btnEliminar.Name = "btnEliminar"
-        Me.btnEliminar.Size = New System.Drawing.Size(130, 30)
-        Me.btnEliminar.TabIndex = 10
-        Me.btnEliminar.Text = "Eliminar"
-        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -138,10 +81,27 @@ Partial Class FormProducto
         Me.dgvProductos.Size = New System.Drawing.Size(406, 215)
         Me.dgvProductos.TabIndex = 25
         '
+        'cmbCategoria
+        '
+        Me.cmbCategoria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.cmbCategoria.DataSource = Nothing
+        Me.cmbCategoria.DisplayMember = ""
+        Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.cmbCategoria.ForeColor = System.Drawing.Color.White
+        Me.cmbCategoria.Location = New System.Drawing.Point(291, 16)
+        Me.cmbCategoria.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmbCategoria.Name = "cmbCategoria"
+        Me.cmbCategoria.Placeholder = "Categoria"
+        Me.cmbCategoria.PlaceholderColor = System.Drawing.Color.Gray
+        Me.cmbCategoria.SelectedItem = "Categoria"
+        Me.cmbCategoria.Size = New System.Drawing.Size(122, 40)
+        Me.cmbCategoria.TabIndex = 32
+        Me.cmbCategoria.Text = "Categoria"
+        '
         'txtBuscar
         '
-        Me.txtBuscar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtBuscar.AutoSize = True
         Me.txtBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
         Me.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -155,7 +115,7 @@ Partial Class FormProducto
         Me.txtBuscar.Padding = New System.Windows.Forms.Padding(5)
         Me.txtBuscar.Placeholder = "Buscar"
         Me.txtBuscar.PlaceholderColor = System.Drawing.Color.Gray
-        Me.txtBuscar.Size = New System.Drawing.Size(84, 41)
+        Me.txtBuscar.Size = New System.Drawing.Size(91, 41)
         Me.txtBuscar.TabIndex = 31
         Me.txtBuscar.Text = "Buscar"
         '
@@ -222,21 +182,62 @@ Partial Class FormProducto
         Me.txtNombre.TabIndex = 28
         Me.txtNombre.Text = "Nombre"
         '
-        'cmbCategoria
+        'btnAgregar
         '
-        Me.cmbCategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.cmbCategoria.DataSource = Nothing
-        Me.cmbCategoria.Font = New System.Drawing.Font("Segoe UI Semibold", 16.0!, System.Drawing.FontStyle.Bold)
-        Me.cmbCategoria.ForeColor = System.Drawing.Color.White
-        Me.cmbCategoria.Location = New System.Drawing.Point(291, 16)
-        Me.cmbCategoria.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmbCategoria.Name = "cmbCategoria"
-        Me.cmbCategoria.Placeholder = "Categoria"
-        Me.cmbCategoria.PlaceholderColor = System.Drawing.Color.Gray
-        Me.cmbCategoria.SelectedItem = "Categoria"
-        Me.cmbCategoria.Size = New System.Drawing.Size(122, 40)
-        Me.cmbCategoria.TabIndex = 32
-        Me.cmbCategoria.Text = "Categoria"
+        Me.btnAgregar.AutoSize = True
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnAgregar.FlatAppearance.BorderSize = 0
+        Me.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnAgregar.ForeColor = System.Drawing.Color.White
+        Me.btnAgregar.Location = New System.Drawing.Point(3, 3)
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(129, 30)
+        Me.btnAgregar.TabIndex = 8
+        Me.btnAgregar.Text = "Agregar"
+        Me.btnAgregar.UseVisualStyleBackColor = False
+        '
+        'btnModificar
+        '
+        Me.btnModificar.AutoSize = True
+        Me.btnModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnModificar.FlatAppearance.BorderSize = 0
+        Me.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnModificar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnModificar.ForeColor = System.Drawing.Color.White
+        Me.btnModificar.Location = New System.Drawing.Point(138, 3)
+        Me.btnModificar.Name = "btnModificar"
+        Me.btnModificar.Size = New System.Drawing.Size(129, 30)
+        Me.btnModificar.TabIndex = 9
+        Me.btnModificar.Text = "Modificar"
+        Me.btnModificar.UseVisualStyleBackColor = False
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.AutoSize = True
+        Me.btnEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(22, Byte), Integer))
+        Me.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Firebrick
+        Me.btnEliminar.FlatAppearance.BorderSize = 0
+        Me.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(9, Byte), Integer), CType(CType(9, Byte), Integer), CType(CType(11, Byte), Integer))
+        Me.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminar.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.btnEliminar.ForeColor = System.Drawing.Color.White
+        Me.btnEliminar.Location = New System.Drawing.Point(273, 3)
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(130, 30)
+        Me.btnEliminar.TabIndex = 10
+        Me.btnEliminar.Text = "Eliminar"
+        Me.btnEliminar.UseVisualStyleBackColor = False
         '
         'FormProducto
         '

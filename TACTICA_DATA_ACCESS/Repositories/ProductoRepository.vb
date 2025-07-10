@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Public Class ProductoRepository
+Friend Class ProductoRepository
     Implements IProductoRespository
     Private ReadOnly conexion As Connection
     Public Sub New(conexion As Connection)
@@ -9,9 +9,10 @@ Public Class ProductoRepository
 
     Public Function Add(entity As Producto) As Integer Implements IBaseRepository(Of Producto).Add
         Dim query As String = "INSERT INTO productos VALUES (@Nombre,@Precio,@Categoria);SELECT Id = SCOPE_IDENTITY()"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
+
                 Dim nombre As Object = RepositoryHelper.FormatNullableValue(entity.Nombre)
                 Dim precio As Object = RepositoryHelper.FormatNullableValue(entity.Precio)
                 Dim categoria As Object = RepositoryHelper.FormatNullableValue(entity.Categoria)
@@ -26,7 +27,7 @@ Public Class ProductoRepository
     End Function
     Public Sub Update(entity As Producto) Implements IBaseRepository(Of Producto).Update
         Dim query As String = "UPDATE productos SET Nombre = @Nombre,Precio = @Precio,Categoria = @Categoria WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Dim nombre As Object = RepositoryHelper.FormatNullableValue(entity.Nombre)
@@ -43,7 +44,7 @@ Public Class ProductoRepository
 
     Public Sub Delete(entity As Producto) Implements IBaseRepository(Of Producto).Delete
         Dim query As String = "DELETE FROM productos WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 command.Parameters.Add(New SqlParameter("@Id", entity.ID))
@@ -55,7 +56,7 @@ Public Class ProductoRepository
     Public Function GetAllCategorias() As IEnumerable(Of String) Implements IProductoRespository.GetAllCategorias
         Dim query As String = "SELECT DISTINCT categoria from productos WHERE Categoria IS NOT NULL"
         Dim categorias As New List(Of String)()
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Using reader As IDataReader = command.ExecuteReader()
@@ -72,8 +73,8 @@ Public Class ProductoRepository
     Public Function GetAll() As IEnumerable(Of Producto) Implements IBaseRepository(Of Producto).GetAll
         Dim query As String = "SELECT * FROM productos"
         Dim productos As New List(Of Producto)()
-        Using conneciton As Connection = conexion.CreateConnection()
-            Using command As IDbCommand = conexion.CreateCommand()
+        Using connection As IDbConnection = conexion.CreateConnection()
+            Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 Using reader As IDataReader = command.ExecuteReader()
                     While reader.Read()
@@ -92,7 +93,7 @@ Public Class ProductoRepository
     End Function
     Public Function GetById(id As Integer) As Producto Implements IBaseRepository(Of Producto).GetById
         Dim query As String = "SELECT * FROM productos WHERE ID = @Id"
-        Using connection As Connection = conexion.CreateConnection()
+        Using connection As IDbConnection = conexion.CreateConnection()
             Using command As IDbCommand = connection.CreateCommand()
                 command.CommandText = query
                 command.Parameters.Add(New SqlParameter("@Id", id))

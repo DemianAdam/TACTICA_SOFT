@@ -134,6 +134,12 @@
     <Compile Include="Forms\FormProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\FormVentaItems.Designer.vb">
+      <DependentUpon>FormVentaItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormVentaItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\FormVentas.Designer.vb">
       <DependentUpon>FormVentas.vb</DependentUpon>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormProducto.resx">
       <DependentUpon>FormProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormVentaItems.resx">
+      <DependentUpon>FormVentaItems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVentas.resx">
       <DependentUpon>FormVentas.vb</DependentUpon>

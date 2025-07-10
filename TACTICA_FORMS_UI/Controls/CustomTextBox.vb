@@ -14,8 +14,6 @@ Public Class CustomTextBox
     Private _numericOnly As Boolean
     Public Sub New()
         InitializeComponent()
-        Me.Padding = New Padding(0)
-        Me.Margin = New Padding(0)
         MaskedTextBox1.BorderStyle = BorderStyle.None
         MaskedTextBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
         MaskedTextBox1.Font = Me.Font
@@ -29,7 +27,7 @@ Public Class CustomTextBox
             If isInDesignMode Then Return 0
             If Not NumericOnly Then Return 0
 
-            Dim textValue As String = Me.Text
+            Dim textValue As String = Me.MaskedTextBox1.Text
 
             If String.IsNullOrWhiteSpace(textValue) OrElse textValue = Placeholder Then
                 Return 0
@@ -44,7 +42,7 @@ Public Class CustomTextBox
         End Get
         Set(value As Decimal)
             If isInDesignMode Then Return
-            Me.Text = value.ToString()
+            Me.MaskedTextBox1.Text = value.ToString()
         End Set
     End Property
 
@@ -137,8 +135,8 @@ Public Class CustomTextBox
         Set(value As String)
             _placeholder = value
             If isInDesignMode Then
-                Me.Text = value
-                Me.ForeColor = _placeholderColor
+                Me.MaskedTextBox1.Text = value
+                Me.MaskedTextBox1.ForeColor = _placeholderColor
             End If
         End Set
     End Property
@@ -201,13 +199,24 @@ Public Class CustomTextBox
     End Property
 
     Private Sub MyCustomTextBox_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        _baseForeColor = Me.ForeColor
-        If Not String.IsNullOrEmpty(Placeholder) Then
-            If Not (Me.DesignMode OrElse LicenseManager.UsageMode = LicenseUsageMode.Designtime) Then
-                Me.ForeColor = PlaceholderColor
-            End If
-            Me.Text = Placeholder
+        If Not _baseForeColorSetted Then
+            _baseForeColor = Me.ForeColor
+            _baseForeColorSetted = True
+        End If
 
+        If isInDesignMode Then
+            If Not String.IsNullOrEmpty(Placeholder) Then
+                Me.MaskedTextBox1.Text = Placeholder
+                Me.MaskedTextBox1.ForeColor = PlaceholderColor
+            End If
+            Return
+        End If
+
+        If String.IsNullOrEmpty(Me.Text) OrElse Me.Text = Placeholder Then
+            Me.MaskedTextBox1.Text = Placeholder
+            Me.MaskedTextBox1.ForeColor = PlaceholderColor
+        Else
+            Me.MaskedTextBox1.ForeColor = _baseForeColor
         End If
     End Sub
 
